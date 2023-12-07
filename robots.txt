@@ -1,0 +1,6 @@
+User-agent: *
+Sitemap: http://localhost/HelloLaravel/sitemap.xml <!--هنا يجب وضع المسار الحقيقي بعد رفع الموقع على الانترنت -->
+Disallow: /admin*
+Disallow: /front.profile
+Disallow: /front.site_media
+Disallow: /front.exams
