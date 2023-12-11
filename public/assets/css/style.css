@@ -923,3 +923,7 @@
     backdrop-filter: blur(3.9px);
     -webkit-backdrop-filter: blur(3.9px);
 }
+.dropdown-menu[data-bs-popper] {
+    top: 200% !important;
+    right: -50px !important;
+}

@@ -52,6 +52,10 @@
             border-top-color: #3389fc;
             animation-name: oSpin;
         }
+        .one-moment{
+            top: 130px;
+            position: relative;
+        }
         .coverCKEForm .inner-spinner{
             width: 80px;
             height: 80px;
@@ -245,6 +249,8 @@
             <div class="coverCKEForm rounded-4">
                 <div class="outer-spinner"></div>
                 <div class="inner-spinner"></div>
+                
+                <div class="one-moment fw-bolder fs-4">لحظة من فضلك ...</div>
             </div>
             @verify
                 <form id="ckeditorForm" method="POST" action="{{route('create.question')}}">
@@ -330,15 +336,13 @@
         
     /*$(document).ready( function() {
     });*/
+   
     createEditor( 'question-ckeditor', 'ادخل السؤال هنا' );
 
     $('#CKEContainer').ready(function() {
         $(".coverCKEForm").fadeOut(500)  
       });
 
-</script>
-
-<script>
     delete_buttons();
 
     ckeditor_ajax_function();

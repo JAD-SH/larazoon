@@ -22,7 +22,7 @@
                     </div>
                     <div class="my-3  m-md-2 ">
                       @foreach($plan->courses as $course)
-                        <span class="btn bg-gradient-{{$course->color}} py-1 px-2 m-1 m-md-0  rounded-pill text-xxs" >{{$course->title}} </span>                    
+                        <span class="btn bg-gradient-{{$course->color}} py-0 px-2 m-1 m-md-0  rounded-pill text-xxs" >{{$course->title}} </span>                    
                       @endforeach
                     </div>
                     <div class="m-2 fw-bolder d-flex justify-content-between align-items-baseline">
