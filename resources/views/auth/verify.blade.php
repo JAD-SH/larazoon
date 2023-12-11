@@ -30,15 +30,16 @@
                             </div>
                         @endif
                         <div class="fw-bolder">
-                            <p class="mb-0 fs-6"> تبقى خطوة بسيطة قبل اكمال عملية تسجيل الدخول .... رجاءا قم بتفقد بريدك الألكتروني <span class="text-info">{{Auth::user()->email}}</span> والتاكد من رسالة التحقق .</p>
+                            <p class="mb-0 fs-6"> تبقى خطوة بسيطة قبل اكمال عملية تسجيل الدخول . . . رجاءا قم بتفقد بريدك الألكتروني <span class="text-info">{{Auth::user()->email}}</span> والتاكد من رسالة التحقق .</p>
                             <p class="fs-6"> اذا لم تصل لك رسالة التحقق اعد ارسال الرسالة مرة اخرى.</p>
                         </div>
                         <div class=" text-center">
                             <form class="d-inline-block" method="POST" action="{{ route('verification.resend') }}">
                                 @csrf
-                                <button type="submit" class="w-auto btn rounded-3 bg-gradient-primary m-3 w-85  fs-6 position-relative overflow-hidden">أرسل مرة اخرى.</button>
+                                <button type="submit" class="w-auto btn rounded-3 bg-gradient-primary m-1 w-85  fs-6 position-relative overflow-hidden">أرسل مرة اخرى</button>
                             </form>
                             <a class="btn rounded-3 bg-gradient-info m-1"  href="{{route('Course.index')}}"><i class=" fs-6 fa-solid fa-house-chimney"></i></a>
+                            <a class="btn rounded-3 bg-gradient-info m-1 d-block d-md-inline-block"  href="{{route('user.wrong-email')}}">أخطأت بالبريد الألكتروني</a>
                         </div>
                     </div>
                 </div>

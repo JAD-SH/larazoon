@@ -175,6 +175,7 @@ Auth::routes(['verify'=>true]);
         Route::get('how-lock-your-profile', [ProfileController::class, 'showmyprofile'])->name('show-my-profile');
         
         Route::get('Logout', [LogoutController::class, 'perform'])->name('user.logout');
+        Route::get('wrong-email', [LogoutController::class, 'wrongEmail'])->name('user.wrong-email');
 
     ########################### end User ########################################
     
@@ -203,7 +204,7 @@ Auth::routes(['verify'=>true]);
     ########################### end Exams ########################################
 
     
-});
+    });
 Route::get('/sitemap', [AutoSiteMapGenerate::class, 'generate_site_map']);
 /*
 Route::fallback(function () {

@@ -1,7 +1,7 @@
 
 @extends('layouts.front.site')
 
-@section('title',$lesson->title)
+@section('title','LZ - '.$lesson->title)
 @section('description',$lesson->description)
 @section('og:url',route('show-lesson',[$group_lessons[0]->course->slug,$lesson->slug]))
 @section('og:image',asset($group_lessons[0]->course->photo))

@@ -1,6 +1,6 @@
 @extends('layouts.front.site')
 
-@section('title','الرئيسية')
+@section('title','أفضل موقع عربي لتعلم تطوير الويب')
 @section('description','{{Site()->site_description}}')
 @section('og:url','xx')
 @section('og:image','{{Site()->site_photo}}')

@@ -45,13 +45,21 @@
 
                 
               <div class="card-body p-4">
+                @if(count($errors) > 0)
+                  @foreach( $errors->all() as $message )
+                    <div class="alert alert-danger display-hide" style="border-right: 5px solid #ff8585;">
+                      <span>عنوان البريد الألكتروني أو كلمة المرور غير صحيحية !!!</span>
+                    </div>
+                  @endforeach
+                @endif
                 <form role="form" action="{{route('login')}}" method="post">
                   @csrf
                   <label for="email" class="fw-bolder fs-6 " >البريد الالكتروني</label>
                   <div class="input-group input-group-outline my-3 ">
-                    <input type="email" id="email" name="email" class="form-control rounded-3"
+                    <input type="email" id="email" name="email" class="form-control rounded-3" 
                     @if(Cookie::has('email')) value="{{Cookie::get('email')}}" @endif>
                   </div>
+                  
                   <label for="password" class="fw-bolder fs-6 " >كلمة المرور</label>
                   <div class="input-group input-group-outline my-3 ">
                     <input type="password" id="password" name="password" class="form-control rounded-3"
