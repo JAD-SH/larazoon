@@ -44,7 +44,7 @@
             background-color:#ffffff00 !important;
         }
         .new-box, .near-box{
-            top: 20.2% !important;
+            top: 15.5% !important;
             
             box-shadow: 0 .125rem .25rem rgba(0,0,0,.35)!important;
             z-index:2;
@@ -59,11 +59,11 @@
         }
         @media screen and (min-width: 768px){
             .new-box{
-                top: 16% !important;
+                top: 15% !important;
                 right: -9.5% !important;
             }
             .near-box{
-                top: 16% !important;
+                top: 15% !important;
                 left: -9.5% !important;
             }
         } 
@@ -175,7 +175,7 @@
                 @if($category->courses->count() > 0)
                 @foreach($category->courses as $index=>$course)
                     
-                    <div style="animation-duration: 1.{{$index}}s;" data-sos-once="true" data-sos="sos-top" class="col-lg-4 col-md-6 col-sm-8 col-xsm-12 mb-5 mb-ms-7 p-2  d-inline-block ">
+                    <div style="animation-duration: 1.{{$index}}s;" data-sos-once="true" data-sos="sos-top" class="col-lg-4 col-md-6 col-sm-8 col-xsm-12 mb-3 mb-ms-7 p-2  d-inline-block ">
                     <div class="sand-box rounded-5">
                         @if($course->lessons->count() <= 0)
                         <div class="  w-50 bg-gradient-{{$course->color}} p-1 h-10 position-absolute text-white font-weight-bolder  near-box placeholder text-center" >قريبا</div>

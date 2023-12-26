@@ -436,7 +436,7 @@
         }
 
     }
-    .custome-scrollbar-y{
+    /*.custome-scrollbar-y{
         width: calc(100vw + 4px);
         
         
@@ -448,7 +448,7 @@
         z-index: 99999;
         height: 5px;
         background-color: #ffffff00;
-    }
+    }*/
     #save-items-continer{
         left: -50px;
         top:80%;

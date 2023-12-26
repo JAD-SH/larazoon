@@ -25,7 +25,7 @@
 
 
 <!-- syntax code -->
-<script src="{{asset('public/assets/prism-syntax-code/prism.js')}}"></script>
+<script src="{{asset('public/assets/prism/prism.js')}}"></script>
 <!-- syntax code -->
 
 @if(Session::has('notifyType'))

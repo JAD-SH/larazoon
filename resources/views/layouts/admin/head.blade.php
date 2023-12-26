@@ -14,7 +14,7 @@
   <!-- bootstrp rtl -->
   
   <!-- syntax code -->
-  <link href="{{asset('public/assets/prism-syntax-code/a11y-dark.css')}}" rel="stylesheet" />
+  <link href="{{asset('public/assets/prism/prism.css')}}" rel="stylesheet" />
   <!-- syntax code -->
   
   <!-- Font Awesome Icons -->

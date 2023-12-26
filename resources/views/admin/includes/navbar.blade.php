@@ -28,23 +28,23 @@
 </a>
 <ul class="dropdown-menu dropdown-menu-dark rounded-5 p-2 position-absolute shadow-sm">
   <li>
-    <button class="dropdown-item rounded-5 " type="button">
+    <button class="dropdown-item rounded-5 text-light " type="button">
       طلبات الخدمات
       <span class=" translate-middle rounded-pill bg-danger bg-gradient-danger text-white p-1 px-2 mx-1" style="font-size:10px !important;">
-        0
+        null
       </span>
     </button>
   </li>
   <li>
     @if(Asks() !== null) 
-      <a class="dropdown-item rounded-5 " href="{{route('Notification-dashboard')}}">
+      <a class="dropdown-item rounded-5 text-light " href="{{route('Notification-dashboard')}}">
         الاسئلة
         <span class=" translate-middle rounded-pill bg-danger bg-gradient-danger text-white p-1 px-2 mx-1" style="font-size:10px !important;">
           {{Asks()->count()}}
         </span>
       </a>
     @else
-      <button class="dropdown-item rounded-5 " type="button">
+      <button class="dropdown-item rounded-5 text-light " type="button">
         الاسئلة
         <span class=" translate-middle rounded-pill bg-danger bg-gradient-danger text-white p-1 px-2 mx-1" style="font-size:10px !important;">
           0
@@ -54,14 +54,14 @@
   </li>
   <li>
     @if(Messages() !== null)
-      <a class="dropdown-item rounded-5 " href="{{route('Notification-dashboard')}}">
+      <a class="dropdown-item rounded-5 text-light " href="{{route('Notification-dashboard')}}">
         الابلاغات والرسائل  
         <span class=" translate-middle rounded-pill bg-danger bg-gradient-danger text-white p-1 px-2 mx-1" style="font-size:10px !important;">
         {{Messages()->count()}}
         </span>
       </a>
     @else
-      <button class="dropdown-item rounded-5 " type="button">
+      <button class="dropdown-item rounded-5 text-light " type="button">
         الابلاغات والرسائل
         <span class=" translate-middle rounded-pill bg-danger bg-gradient-danger text-white p-1 px-2 mx-1" style="font-size:10px !important;">
           0 

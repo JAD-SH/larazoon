@@ -18,7 +18,9 @@
   </head>
   
   <body class="@isset($_COOKIE['DarkMode']) dark @endisset placeholder-glow">
-    <input class="custome-scrollbar-y position-fixed d-none d-md-block" type="range" min="0" max="100" value="0" id="">
+    <!-- 
+      <input class="custome-scrollbar-y position-fixed d-none d-md-block" type="range" min="0" max="100" value="0" id="">
+    -->
     
 
     <div data-sos-once="true" data-sos="sos-top" class="progress-scroll-bage-x-line">
