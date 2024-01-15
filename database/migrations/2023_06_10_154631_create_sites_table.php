@@ -21,6 +21,10 @@ return new class extends Migration
             $table->string('site_photo');
             $table->string('site_logo');
             //$table->string('site_sm_logo');
+            $table->string('facebook', 200)->nullable();
+            $table->string('twitter', 200)->nullable();
+            $table->string('instagram', 200)->nullable();
+            $table->string('github', 200)->nullable();
             $table->string('user_profile_background');
             $table->timestamps();
         });

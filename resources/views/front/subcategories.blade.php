@@ -1,23 +1,26 @@
-
 @extends('layouts.front.site')
-
 
 @section('title','الأقسام الفراعية')
 @section('og:url',route('show-Subcategories'))
 
 @section('css')
-
+    <link href="{{asset('public/assets/css/block-idea.css')}}" rel="stylesheet" />
     <style>
-        
+        .addvertismrnt .card{
+            border-radius:  1rem  .25rem .25rem 1rem  !important;
+        }
+        @media screen and (max-width: 992px){
+            .addvertismrnt .card{
+                border-radius: 1rem !important;
+                margin: .5rem;
+            }
+        }
         @media screen and (min-width: 992px){
             .content .content-category .card{
                 border-radius: .25rem 1rem 1rem .25rem !important;
             }
         } 
-
     </style>
-
-
 @endsection
 
 @section('path')
@@ -47,7 +50,7 @@
                         @endif
                         <a class="nav-link text-md-start position-relative  m-1   mx-3 mx-md-0 link-block-idea-side-content" href="{{route('show-Subcategory',$subcategory->slug)}}">
                             <div class="block-idea-side-content py-2  me-md-3">
-                                <i class="{{$subcategory->icon}}  "></i> 
+                                <i class="{{$subcategory->icon}}"></i> 
                                 <div class="block-idea-side {{$subcategory->color}}-block-idea-side"></div>
                                 <div class="block-idea-side {{$subcategory->color}}-block-idea-side"></div>
                                 <div class="block-idea-side {{$subcategory->color}}-block-idea-side"></div>
@@ -56,7 +59,7 @@
                             </div>
                         </a>
                         <div class="py-2 py-md-0 question-all-content">
-                            <a class="nav-link text-md-start  mx-3 mx-md-0 link-block-idea-side-content" href="{{route('show-Subcategory',$subcategory->slug)}}">
+                            <a class="nav-link text-md-start  mx-3 mx-md-0" href="{{route('show-Subcategory',$subcategory->slug)}}">
                                 <div class="text-dark fw-bolder fs-5 ">
                                     {{$subcategory->title}}
                                 </div>

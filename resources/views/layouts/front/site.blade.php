@@ -18,10 +18,7 @@
   </head>
   
   <body class="@isset($_COOKIE['DarkMode']) dark @endisset placeholder-glow">
-    <!-- 
-      <input class="custome-scrollbar-y position-fixed d-none d-md-block" type="range" min="0" max="100" value="0" id="">
-    -->
-    
+   
 
     <div data-sos-once="true" data-sos="sos-top" class="progress-scroll-bage-x-line">
       <div class="progress-scroll-bage-x bg-gradient-danger overflow-hidden">
@@ -30,9 +27,9 @@
     </div>
     
     <div class="scroll-buttons-continer position-fixed text-center">
-      <button data-sos-once="true" data-sos="sos-left" style="animation-duration: 1.6s;" class="scroll-button scroll-button-top p-2 rounded-5 bg-gradient-dark mx-auto my-2 d-flex justify-content-center align-items-center"><i class="fa-solid fa-angles-up fs-5 text-white fw-bolder"></i></button>
-      <button data-sos-once="true" data-sos="sos-left" style="animation-duration: 1.3s;" class="d-none d-lg-block scroll-button scroll-button-up p-2 rounded-5 bg-gradient-dark mx-auto my-2 d-flex justify-content-center align-items-center"><i class="fa fa-angle-up fs-5 text-white fw-bolder"></i></button>
-      <button data-sos-once="true" data-sos="sos-left" style="animation-duration: 1s;" class="d-none d-lg-block scroll-button scroll-button-down  p-2 rounded-5 bg-gradient-dark mx-auto my-2 d-flex justify-content-center align-items-center"><i class="fa fa-angle-down fs-5 text-white fw-bolder"></i></button>
+      <button data-sos-once="true" data-sos="sos-left" style="animation-duration: 1.6s;" class="scroll-button scroll-button-top p-2 rounded-5 bg-gradient-dark mx-auto my-2 d-flex justify-content-center align-items-center" aria-label="go to top"><i class="fa-solid fa-angles-up fs-5 text-white fw-bolder"></i></button>
+      <button data-sos-once="true" data-sos="sos-left" style="animation-duration: 1.3s;" class="d-none d-lg-block scroll-button scroll-button-up p-2 rounded-5 bg-gradient-dark mx-auto my-2 d-flex justify-content-center align-items-center" aria-label="step tp up"><i class="fa fa-angle-up fs-5 text-white fw-bolder"></i></button>
+      <button data-sos-once="true" data-sos="sos-left" style="animation-duration: 1s;" class="d-none d-lg-block scroll-button scroll-button-down  p-2 rounded-5 bg-gradient-dark mx-auto my-2 d-flex justify-content-center align-items-center" aria-label="step tp down"><i class="fa fa-angle-down fs-5 text-white fw-bolder"></i></button>
     </div>
 
     <main >

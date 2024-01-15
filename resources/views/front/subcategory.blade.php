@@ -1,4 +1,3 @@
-
 @extends('layouts.front.site')
 
 @section('title',$subcategory->title)
@@ -6,18 +5,23 @@
 @section('og:url',route('show-Subcategory',$subcategory->slug))
 
 @section('css')
-
+    <link href="{{asset('public/assets/css/block-idea.css')}}" rel="stylesheet" />
     <style>
-       
+       .addvertismrnt .card{
+            border-radius:  1rem  .25rem .25rem 1rem  !important;
+        }
+        @media screen and (max-width: 992px){
+            .addvertismrnt .card{
+                border-radius: 1rem !important;
+                margin: .5rem;
+            }
+        }
         @media screen and (min-width: 992px){
             .content .content-category .card{
                 border-radius: .25rem 1rem 1rem .25rem !important;
             }
         } 
-
-        
     </style>
-
 @endsection
 
 @section('path')
@@ -37,9 +41,7 @@
     </div>
 </div>
 <div class="row m-0 content  p-0">
-    
     <div class="col-lg-8 pe-lg-0 content-category">
-        
         
         @if($subcategory->categories->count() !== 0)
             @foreach($subcategory->categories as $category)
@@ -52,7 +54,7 @@
                         @endif
                         <a class="nav-link text-md-start position-relative  m-1   mx-3 mx-md-0 link-block-idea-side-content" href="{{route('show-category',[$subcategory->slug,$category->slug])}}">
                             <div class="block-idea-side-content py-2  me-md-3 placeholder">
-                                <i class="fa-solid fa-question  "></i> 
+                                <i class="{{$subcategory->icon}}"></i> 
                                 <div class="block-idea-side {{$subcategory->color}}-block-idea-side"></div>
                                 <div class="block-idea-side {{$subcategory->color}}-block-idea-side"></div>
                                 <div class="block-idea-side {{$subcategory->color}}-block-idea-side"></div>
@@ -61,7 +63,7 @@
                             </div>
                         </a>
                         <div class="py-2 py-md-0 question-all-content">
-                            <a class="nav-link text-md-start  mx-3 mx-md-0 link-block-idea-side-content" href="{{route('show-category',[$subcategory->slug,$category->slug])}}">
+                            <a class="nav-link text-md-start  mx-3 mx-md-0" href="{{route('show-category',[$subcategory->slug,$category->slug])}}">
                                 <div class="text-dark fw-bolder fs-5 placeholder">
                                     {{$category->title}}
                                 </div>

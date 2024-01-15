@@ -1,6 +1,4 @@
-
 @extends('layouts.front.site')
-
 
 @section('meta_tags')
     <meta name="robots" content="noindex">
@@ -80,7 +78,6 @@
             </div>
         </div>
     </div>
-    
 
     @if(Auth::user()->experience()->where('user_id',Auth::user()->id)->first() == null)
         <div  class=" m-3 m-md-4">
@@ -102,7 +99,6 @@
         </button>
     </div>
 @endverify
-
  
     <div class=" m-0 content  p-0">
 
@@ -111,7 +107,7 @@
             
             @foreach($experiences as $index=>$experience)
 
-                <div data-sos-once="true" data-sos="sos-left"  id="item-{{$experience->user->id}}" class=" position-relative  card m-1 m-md-4 p-3 pt-0 border-0 rounded-5  shadow-sm mb-3" >
+                <div data-sos-once="true" data-sos="sos-left"  id="item-{{$experience->id}}" class=" position-relative  card m-1 m-md-4 p-3 pt-0 border-0 rounded-5  shadow-sm mb-3" >
                     @if($experience->created_at->diffInDays() <= 3)
                         <div class="position-absolute overflow-hidden continer-new-box">
                             <div class="  w-100 bg-gradient-danger  position-absolute text-white font-weight-bolder text-center text-sm new-box" >جديد</div>
@@ -120,14 +116,14 @@
                     <div class="d-flex flex-md-row">
                         <div class="col-auto px-0 me-2 d-flex justify-content-center align-items-center">
                             <a href="{{ $experience->user->getPhoto() }}" class=" avatar-xl position-relative  nav-link " style="">
-                                <img src="{{ $experience->user->getPhoto() }}" alt="profile_image" class="w-100 rounded-4 h-100">
+                                <img src="{{ $experience->user->getPhoto() }}" alt="{{$experience->user->name}}" class="w-100 rounded-4 h-100">
                                 <div class="reaction-icon position-absolute bg-light d-none d-md-block"  style=" top:0; left:0; border-radius: 50%">
                                     <i class=" {{ $experience->reaction }}" style="font-size:74px !important; "></i> 
                                 </div>
                             </a> 
                         </div>      
                         <div class="py-2  ">
-                            <a href="{{route('show-profile',$experience->user->username)}}" class="nav-link text-md-start  mx-3 mx-md-0 link-block-idea-side-content">
+                            <a href="{{route('show-profile',$experience->user->username)}}" class="nav-link text-md-start  mx-3 mx-md-0">
                                 <div class="text-dark fw-bolder fs-5 ">
                                     {{$experience->user->name}}
                                     @verify
@@ -138,14 +134,14 @@
                                 </div>
                             </a> 
                             @verify
-                            @if(Auth::user()->id == $experience->user->id)
-                            <a type="button" action="" style="left: 40px; top: 50px;"
-                                class="delete position-absolute trash-can-shook"
-                                data-bs-toggle="modal" data-bs-target="#DeleteModal">
-                                <i class="fa-solid fa-trash-can text-danger text-gradient fs-5"></i>
-                            </a>
-                        @endif
-                        @endverify
+                                @if(Auth::user()->id == $experience->user->id)
+                                    <button type="button" action="{{route('user_experience_delete')}}" style="left: 40px; top: 50px;"
+                                        class="delete position-absolute trash-can-shook" data-bs-toggle="modal" 
+                                        data-bs-target="#DeleteModal" aria-label="delete experience">
+                                        <i class="fa-solid fa-trash-can text-danger text-gradient fs-5"></i>
+                                    </button>
+                                @endif
+                            @endverify
                         <p class="mb-1 fw-bolder text-sm text-info" style="font-size: 12px;">
                             {{$experience->user->interest}}
                         </p>
@@ -179,15 +175,12 @@
         </div>
     </div>
 
-
 @endsection
-
 
 @section('script')
 
 <script>
-    
+    delete_buttons();
 </script>
 
- 
 @endsection

@@ -136,7 +136,7 @@ class QuestionController extends Controller
                     'notifyType' => 'warningToast','notifyTitle' => 'فشل  ','notifyMsg' => 'لا يوجد اسئلة في مكتبة الاسئلة هذه'
                 ]);
             }
-            $maincategory = MainCategory::where('route','Question')->active()-selection()->first();
+            $maincategory = MainCategory::where('route','Question')->active()->selection()->first();
             return view('front.questions',compact('questions','maincategory','currentquestionlibrary'));
         }catch (\Exception $ex){
             return redirect()->route('Question.index')->with([

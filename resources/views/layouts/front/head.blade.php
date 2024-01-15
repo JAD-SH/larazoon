@@ -6,6 +6,7 @@
 <meta name = "twitter:card" content = "summary_large_image"></meta><!--لا تتغير -->
 <meta name = "twitter:site" content = "{{Site()->site_name}}"></meta><!-- يمكن لازم نحط @ قبل الاسم ولازم يكون بالاساس هذا الاسم يشير الي اسم الصفهة على تويتر يمكننننننننن -->
 <meta name = "twitter:creator" content = "{{Site()->site_name}}"></meta><!-- يمكن لازم نحط @ قبل الاسم ولازم يكون بالاساس هذا الاسم يشير الي اسم الصفهة على تويتر يمكننننننننن -->
+<meta name="description" content="@yield('description')">
 <meta property = "og:type" content = "website" /><!--لا تتغير -->
 <meta property = "og:site_name" content = "{{Site()->site_name}}" /><!--اسم الموقع -->
 <meta property = "og:locale" content = "ar_SA" /><!--لا تتغير -->
@@ -21,9 +22,7 @@
  
 <link href="{{asset('public/assets/bootstrap/bootstrapRTL.css')}}" rel="stylesheet" />
  
-<!-- syntax code -->
-<link href="{{asset('public/assets/prism/prism.css')}}" rel="stylesheet" />
-<!-- syntax code -->
+
 
 <!-- Font Awesome Icons -->
 <link rel="stylesheet" href="{{asset('public/assets/fontawesome/css/fontawesome.min.css')}}">
@@ -45,7 +44,11 @@
   if(meta_title){
     meta_title.setAttribute('content','{{Site()->site_name}}');
   }
-  let meta_description = document.querySelector('meta[property="og:description"][content=""]');
+  let meta_og_description = document.querySelector('meta[property="og:description"][content=""]');
+  if(meta_og_description){
+    meta_og_description.setAttribute('content','{{Site()->site_description}}');
+  }
+  let meta_description = document.querySelector('meta[name="description"][content=""]');
   if(meta_description){
     meta_description.setAttribute('content','{{Site()->site_description}}');
   }

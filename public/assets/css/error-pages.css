@@ -1,6 +1,4 @@
-
-/*##########  for error pages  ###############*/
-    
+/*##########  for error pages  ###############*/    
 .all-page{
     height: 100vh;
     width: 100vw;
@@ -29,13 +27,11 @@
     animation: animatespan 15s linear infinite;
     animation-duration: calc(200s / var(--i));
     animation-direction: alternate-reverse;
-    
 }
 @keyframes animatespan {
     0%   { transform: translateY(100vh) ; font-size:10px;}
     45%   { transform: translateY(50vh) ; font-size:25px;}
     100%   { transform: translateY(-10vh) ; font-size:10px;}
-    
 }
 .bubbles span:nth-child(even){
     z-index: 5;
@@ -48,7 +44,6 @@
     0%   { transform: translateY(100vh) ; font-size:20px;}
     45%   { transform: translateY(50vh) ; font-size:10px;}
     100%   { transform: translateY(-10vh) ; font-size:20px;}
-    
 }
 .bubbles h4{
     bottom:200px;
@@ -56,7 +51,6 @@
 .bubbles h1{
     top: calc(50vh / 2);
     font-size:150px;
-    
     transform: skewY(20deg);
     z-index: 6;
     transition: all .7s;
@@ -82,4 +76,3 @@
     100% { text-shadow:0px 18px 3.5px #4fc3dc90 12px 18px 3.5px #ff2d7590; transform: skewY(-20deg); color:#0a0a0a;}
     
 }
-/*##########  for error pages  ###############*/

@@ -7,11 +7,46 @@
 @section('og:image',asset($book->photo))
 @section('og:image:url',asset($book->photo))
 
-
 @section('css')
-<link href="{{asset('public/assets/css/book.css')}}" rel="stylesheet" />
+    <link href="{{asset('public/assets/css/book.css')}}" rel="stylesheet" />
     <style>
-    
+        ::-webkit-scrollbar-thumb {
+            background: var(--bs-{{$book->booklibrary->maincategory->first()->color}});
+        }
+        #save-items-continer{
+            left: -50px;
+            top:80%;
+            z-index: 2;
+            transition: all .8s;
+        }
+        #save-items-btn{
+            font-size: 35px !important;
+            transition: all .8s;
+            padding: 1rem!important;
+        }
+        #save-items-continer:hover{
+            left: 0  !important;
+        }
+        #save-items-continer:hover #save-items-btn{
+            transform: rotate(180deg);
+            transition: all .8s;
+        }
+        .round-squer{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: -115px;
+            top: -115px;
+            animation-name: infRound;
+            animation-duration: 10s;
+            transition:all .5s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes infRound {
+            0%   {transform: rotate(0deg); border-radius:40%;}
+            40%   {border-radius:20%;}
+            100% {transform: rotate(360deg); border-radius:40%;}
+        }
     </style>
     {!!$schemajspnscript!!}
 @endsection
@@ -24,17 +59,15 @@
 
 @section('content')
 
-
 @verify
-
     <form action="{{route('save-book',$book->id)}}" method="POST">
         @csrf
-        <button data-sos-once="true" data-sos="sos-right" id="save-items-continer" class=" bg-gradient-{{$book->booklibrary->maincategory->first()->color}} position-fixed rounded-1 d-none d-lg-block ajax-submit">
+        <button aria-label="save book" data-sos-once="true" data-sos="sos-right" id="save-items-continer" class=" bg-gradient-{{$book->booklibrary->maincategory->first()->color}} position-fixed rounded-1 d-none d-lg-block ajax-submit">
             <i id="save-items-btn" class="fa-solid fa-plus text-white p-3 "></i>
         </button>
     </form>
 @else
-    <button data-sos-once="true" data-sos="sos-right" id="save-items-continer" class=" bg-gradient-{{$book->booklibrary->maincategory->first()->color}} position-fixed rounded-1 d-none d-lg-block" data-bs-toggle="modal" data-bs-target="#LoginModal" >
+    <button aria-label="save book" data-sos-once="true" data-sos="sos-right" id="save-items-continer" class=" bg-gradient-{{$book->booklibrary->maincategory->first()->color}} position-fixed rounded-1 d-none d-lg-block" data-bs-toggle="modal" data-bs-target="#LoginModal" >
         <i id="save-items-btn" class="fa-solid fa-plus text-white p-3 "></i>
     </button>
 @endverify
@@ -52,28 +85,15 @@
                     <div class="spring-point"></div>
                     <div class="spring-point"></div>
                     <div class="spring-point"></div>
-                    
                 </div>
-                <img src="{{$book->photo}}" alt="">
+                <img src="{{$book->photo}}" alt="{{$book->title}}">
             </div>
-            <div class="paper middle-bages bg-1">
-
-            </div>
-            <div class="paper middle-bages bg-2">
-
-            </div>
-            <div class="paper middle-bages bg-3">
-
-            </div>
-            <div class="paper middle-bages bg-4">
-
-            </div>
-            <div class="paper middle-bages bg-5">
-
-            </div>
-            <div class="paper back-bage">
-
-            </div>
+            <div class="paper middle-bages bg-1"></div>
+            <div class="paper middle-bages bg-2"></div>
+            <div class="paper middle-bages bg-3"></div>
+            <div class="paper middle-bages bg-4"></div>
+            <div class="paper middle-bages bg-5"></div>
+            <div class="paper back-bage"></div>
         </div>
         
             <div class=" py-3 pb-0 py-md-0  m-2 w-md-65">
@@ -153,9 +173,14 @@
 
 @section('script')
 
+<script src="{{asset('public/assets/js/ABCLQ.js')}}"></script>
 <script>
     //ajax_function();
-    create_save_btn("{{$book->booklibrary->maincategory->first()->color}}","{{route('save-book',$book->id)}}");
+    @verify
+        create_save_btn("{{$book->booklibrary->maincategory->first()->color}}","{{route('save-book',$book->id)}}");
+    @else
+        create_save_btn_not_verify("{{$book->booklibrary->maincategory->first()->color}}","{{route('save-book',$book->id)}}");
+    @endverify
 </script>
 
 @endsection

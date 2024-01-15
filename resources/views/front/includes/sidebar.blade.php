@@ -3,7 +3,7 @@
   <div class="offcanvas-header p-0">
     <div class="offcanvas-title w-100 text-center">
       <a class="navbar-logo w-100 fs-5 fw-bold  py-3 " href="{{route('Course.index')}}">{{Site()->site_name}}
-           <img src="{{Site()->site_logo}}" alt="">
+           <img src="{{Site()->site_logo}}" alt="{{Site()->site_name}}-logo">
       </a>
     </div>
     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -63,9 +63,9 @@
         @else
           <form class="d-inline user_active" action="{{route('User.follow-course', $group_lessons[0]->course->id)}}" method="POST">
             @csrf
-            <a  class="btn rounded-3 bg-gradient-primary  py-3 w-100 fs-6 fw-bold mb-1 text-light ajax-submit" type="button" >
+            <button class="btn rounded-3 bg-gradient-primary  py-3 w-100 fs-6 fw-bold mb-1 text-light ajax-submit" type="button" >
               تابع الكورس<i class="fa-solid fa-feather-pointed"></i>
-            </a>
+            </button>
           </form>
         @endif
         
@@ -85,24 +85,37 @@
 
       @if(MainCategories() !== null)
         @foreach(MainCategories() as $category)
-        <li class="nav-item rounded-4 sidebar-maincategories my-1" >
-          <a class=" fs-6 fw-bold w-100 d-inline-block py-2 ps-1" 
-          
-          @if(Session::has('categorySLUG'))
-              @if(Session::get('categorySLUG') == $category->slug)
-                  style="background-color: #93939357 !important;"
-              @else
-                  href="{{route($category->route.'.index')}}"
-              @endif
+        @if(Session::has('categorySLUG'))
+          @if(Session::get('categorySLUG') == $category->slug)
+            <li class="nav-item rounded-4 sidebar-maincategories my-1" style="background: #b1b1b142;">
+              <div class=" fs-6 fw-bold w-100 d-inline-block py-2 ps-1">
+                <div class=" text-center mx-2 d-inline-block align-items-center justify-content-center">
+                  <i class="m-auto {{$category->icon}} text-{{$category->color}}"></i>
+                </div>
+                <span class="me-1">{{$category->title}}</span>
+              </div>
+            </li>
           @else
-              href="{{route($category->route.'.index')}}"
-          @endif >
-            <div class=" text-center mx-2 d-inline-block align-items-center justify-content-center">
-              <i class="m-auto {{$category->icon}} text-{{$category->color}}"></i>
-            </div>
-            <span class=" me-1  ">{{$category->title}}</span>
-          </a>
-        </li>
+            <li class="nav-item rounded-4 sidebar-maincategories my-1" >
+              <a class=" fs-6 fw-bold w-100 d-inline-block py-2 ps-1" href="{{route($category->route.'.index')}}">
+                <div class=" text-center mx-2 d-inline-block align-items-center justify-content-center">
+                  <i class="m-auto {{$category->icon}} text-{{$category->color}}"></i>
+                </div>
+                <span class="me-1">{{$category->title}}</span>
+              </a>
+            </li>
+          @endif
+          
+          @else
+          <li class="nav-item rounded-4 sidebar-maincategories my-1" >
+            <a class=" fs-6 fw-bold w-100 d-inline-block py-2 ps-1" href="{{route($category->route.'.index')}}">
+              <div class=" text-center mx-2 d-inline-block align-items-center justify-content-center">
+                <i class="m-auto {{$category->icon}} text-{{$category->color}}"></i>
+              </div>
+              <span class="me-1">{{$category->title}}</span>
+            </a>
+          </li>
+        @endif 
         @endforeach
       @endif
 

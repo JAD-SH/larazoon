@@ -1,16 +1,14 @@
-
 @extends('layouts.front.site')
 
-
 @section('meta_tags')
-<meta name="robots" content="noindex">
+    <meta name="robots" content="noindex">
 @endsection
+
 @section('css')
     <style>
         .btn i {
             color:unset !important;
         }
-        
         .btn-check:checked+.btn i {
             color: var(--bs-btn-active-color) !important;
         }
@@ -20,19 +18,12 @@
             transition:all .5s;
             animation-iteration-count: infinite;
             opacity: 0;
-             
         }
-        
-       .text-shadow{
-        text-shadow: 1px 1px 1px #ffffff80, -1px -1px 1px #ffffff80;
-       }
-
- 
-        
-
+        .text-shadow{
+            text-shadow: 1px 1px 1px #ffffff80, -1px -1px 1px #ffffff80;
+        }
     </style>
- @endsection
-
+@endsection
 
 @section('path')
     <li class="breadcrumb-item fw-bolder active " aria-current="page">سجل الداعم</li>
@@ -45,12 +36,10 @@
             ادعمنا بالمبلغ الذي تراه مناسبا   
         </a>
     </div> 
-
     
     @isset($user->supports)
     
         <div class=" m-0 content  p-0">
-
         @if($user->supports->count() > 0)
             <div class="text-center">
                 <div class=" col-md-8 col-lg-6 d-md-inline-block ">
@@ -58,11 +47,11 @@
                         <div class="d-flex flex-row justify-content-center pt-2">
                             <div class="col-auto px-0 me-2 d-flex justify-content-center align-items-center">
                                 <a href="{{ $user->getPhoto() }}" class=" avatar-xl position-relative  nav-link "  >
-                                    <img src="{{ $user->getPhoto() }}" alt="profile_image" class=" w-100 rounded-4  h-100">
+                                    <img src="{{ $user->getPhoto() }}" alt="{{$user->name}}" class=" w-100 rounded-4  h-100">
                                 </a> 
                             </div>      
                             <div class="py-2  d-inline-block">
-                                <a href="{{route('show-profile',$user->username)}}" class="nav-link text-md-start text-dark  fw-bolder fs-5  mx-md-0 link-block-idea-side-content">
+                                <a href="{{route('show-profile',$user->username)}}" class="nav-link text-md-start text-dark  fw-bolder fs-5  mx-md-0">
                                     <span class=" fs-4  " >{{$user->name}}</span>
                                 </a>  
                                 <p class="mb-1 fw-bolder text-sm text-info " style="font-size: 12px;">
@@ -87,7 +76,6 @@
                     </div>
                 </div>
             </div>
-            
             @foreach($user->supports as $index=>$support)
                 <div data-sos-once="true" data-sos="sos-left" class=" position-relative  card m-1 m-md-4 p-3 border-0 rounded-5  shadow-sm mb-3" >
                     <div class="d-block d-md-flex justify-content-between align-items-center">
@@ -111,10 +99,9 @@
                         </div>
                     @endif
                     <div class=" p-2 fw-bolder fs-4 shadow-sm d-block d-md-none">
-                            {{$support->created_at->diffForHumans()}}   
-                        </div> 
+                        {{$support->created_at->diffForHumans()}}   
+                    </div> 
                 </div>
-
             @endforeach
                  
         @else
@@ -123,15 +110,8 @@
     @endisset
     </div>
 
-
 @endsection
 
-
 @section('script')
-
-<script>
-    
-</script>
-
  
 @endsection

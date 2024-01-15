@@ -87,6 +87,46 @@
         </div>
         --> 
 
+        <div class="  mb-3">
+            <div class=" my-3">
+                <label for="facebook" class="form-label fw-bolder text-dark">رابط facebook</label>
+                <input id="facebook" type="text" name="facebook" class="form-control rounded-4" value="{{Site() -> facebook}}" >
+            </div>
+            @error('facebook')
+                <div class='bg-danger text-white m-0 p-2 fw-bolder w-100'>{{ $message }}</div>
+            @enderror
+        </div>
+ 
+        <div class="  mb-3">
+            <div class=" my-3">
+                <label for="twitter" class="form-label fw-bolder text-dark">رابط twitter</label>
+                <input id="twitter" type="text" name="twitter" class="form-control rounded-4" value="{{Site() -> twitter}}" >
+            </div>
+            @error('twitter')
+                <div class='bg-danger text-white m-0 p-2 fw-bolder w-100'>{{ $message }}</div>
+            @enderror
+        </div>
+ 
+        <div class="  mb-3">
+            <div class=" my-3">
+                <label for="instagram" class="form-label fw-bolder text-dark">رابط instagram</label>
+                <input id="instagram" type="text" name="instagram" class="form-control rounded-4" value="{{Site() -> instagram}}" >
+            </div>
+            @error('instagram')
+                <div class='bg-danger text-white m-0 p-2 fw-bolder w-100'>{{ $message }}</div>
+            @enderror
+        </div>
+  
+        <div class="  mb-3">
+            <div class=" my-3">
+                <label for="github" class="form-label fw-bolder text-dark">رابط github</label>
+                <input id="github" type="text" name="github" class="form-control rounded-4" value="{{Site() -> github}}" >
+            </div>
+            @error('github')
+                <div class='bg-danger text-white m-0 p-2 fw-bolder w-100'>{{ $message }}</div>
+            @enderror
+        </div>
+  
         <div class="mb-3">
             <div class=" my-3">
                 <label for="user_profile_background" class="form-label fw-bolder text-dark">صورة خلفية الملف الشخصي للمستخدمين (300*1365)</label>

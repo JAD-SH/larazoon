@@ -30,6 +30,10 @@ class SiteRequest extends FormRequest
             'site_photo' => 'mimes:jpg,jpeg,png',
             'site_logo' => 'mimes:png',
             //'site_sm_logo' => 'mimes:png',
+            'facebook' => 'nullable|url|regex:/^https:\/\/(www\.)?facebook\.com/',
+            'twitter' => 'nullable|url|regex:/^https:\/\/(www\.)?twitter\.com/',
+            'instagram' => 'nullable|url|regex:/^https:\/\/(www\.)?instagram\.com/',
+            'github' => 'nullable|url|regex:/^https:\/\/(www\.)?github\.com/',
             'user_profile_background' => 'mimes:jpg,jpeg,png',            
         ];
     }
@@ -44,11 +48,16 @@ class SiteRequest extends FormRequest
             'required'=> 'هذا الحقل مطلوب',
             'string'=> 'هذا الحقل لابد ان يكون نصّي',
             'icon.max'=> 'هذا الحقل يجب ان لا يزيد عن 50 حرف',
+            'url' => 'هذا ليس رابط ... الرجاء ادخال رابط صالح',
             'site_photo.mimes'=> 'امتداد صورة الموقع يجب ان يكون من النوع (jpg , jpeg , png)',
             'site_logo.mimes'=> 'امتداد لوجو الموقع يجب ان يكون من النوع (jpg , jpeg , png)',
             //'site_sm_logo.mimes'=> 'امتداد لوجو الموقع يجب ان يكون من النوع (jpg , jpeg , png)',
             'user_profile_background.mimes'=> 'امتداد صورة خلفية الملف الشخصي للمستخدمين يجب ان يكون من النوع (jpg , jpeg , png)',
             'site_description.max'=> 'الوصف يجب ان لا يزيد عن 500 حرف',
+            'facebook.regex' => 'برجاء ادخال رابط facebook صالح',
+            'twitter.regex' => 'برجاء ادخال رابط twitter صالح',
+            'instagram.regex' => 'برجاء ادخال رابط instagram صالح',
+            'github.regex' => 'برجاء ادخال رابط github صالح',
         ];
     }
 }

@@ -7,16 +7,14 @@
 @endsection
 
 @section('css')
-
     <style>
          button[aria-expanded='true']{
             color: var(--bs-dark-rgb) !important;
             background-color: var(--bs-card-bg) !important;
         }
         .accordion-item{
-        background-color: var(--bs-card-bg) !important;
-
-    }
+            background-color: var(--bs-card-bg) !important;
+        }
     </style>
  @endsection
 

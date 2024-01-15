@@ -8,27 +8,101 @@
 @section('og:image:url',asset($question->photo))
 
 @section('css')
+    <!-- syntax code -->
+    <link href="{{asset('public/assets/prism/prism.css')}}" rel="stylesheet" />
+    <link href="{{asset('public/assets/css/CKE-load.css')}}" rel="stylesheet" />
     <style>
-       
+        ::-webkit-scrollbar-thumb {
+            background: var(--bs-{{$question->questionlibraries->first()->maincategory->first()->color}});
+        }
+        code[class*="language-"], pre[class*="language-"] {
+            text-shadow: unset;
+            font-size: 1rem !important;
+            font-weight: bolder!important;
+        }
+        pre[class*="language-"]{
+            display: flex;
+            border-radius: 7px;
+            max-height: 90vh  !important;
+            direction: ltr;
+            margin-top: 20px;
+        }
+        div.code-toolbar>.toolbar>.toolbar-item span{
+            color: white !important;
+            background: rgba(255, 255, 255, 0); 
+            box-shadow: unset; 
+            border-radius: unset;
+        }
+        div.code-toolbar>.toolbar>.toolbar-item{
+            background-image: linear-gradient(195deg, #6f7389d5 0%, #6f7389 100%);
+            box-shadow: 0 3px 3px 0 rgba(251, 140, 0, 0.15), 0 3px 1px -2px rgba(251, 140, 0, 0.2), 0 1px 5px 0 rgba(251, 140, 0, 0.15);
+            padding: 0.25rem 1rem  0.25rem 1rem !important;
+            border-radius: 0.6em;
+            direction: ltr;
+        }
+        div.code-toolbar>.toolbar{
+            text-align: end;
+            position: absolute;
+            top: -20px !important;
+            left: 20px !important;
+            opacity: unset;
+        }
+        .copy-btn{
+            top: 10px !important;
+            right: 20px !important;
+        }
         .comment-reply-card{
             background-color:var(--bs-body-bg);
         }
-
         .trash-can-shook{
             transition:all .5s;
-           
         }
         .trash-can-shook:hover i{
             box-shadow: 0px 0px 20px #f44335;
         }
-       
         .ckeditor-display *{
             letter-spacing: .7px !important;
             font-size: 1.07rem !important;
         }
+        #save-items-continer{
+            left: -50px;
+            top:80%;
+            z-index: 2;
+            transition: all .8s;
+        }
+        #save-items-btn{
+            font-size: 35px !important;
+            transition: all .8s;
+            padding: 1rem!important;
+        }
+        #save-items-continer:hover{
+            left: 0  !important;
+        }
+        #save-items-continer:hover #save-items-btn{
+            transform: rotate(180deg);
+            transition: all .8s;
+        }
+        [dir=rtl] .todo-list .todo-list__label>input{
+            margin: 0 !important;
+        }
+        .round-squer{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: -115px;
+            top: -115px;
+            animation-name: infRound;
+            animation-duration: 10s;
+            transition:all .5s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes infRound {
+            0% {transform: rotate(0deg); border-radius:40%;}
+            40% {border-radius:20%;}
+            100% {transform: rotate(360deg); border-radius:40%;}
+        }
     </style>
     {!!$schemajspnscript!!}
-
 @endsection
 
 @section('path')
@@ -45,12 +119,12 @@
 
     <form action="{{route('save-question',$question->id)}}" method="POST">
         @csrf
-        <button data-sos-once="true" data-sos="sos-right" id="save-items-continer" class=" bg-gradient-{{$question->questionlibraries->first()->maincategory->first()->color}} position-fixed rounded-1 d-none d-lg-block ajax-submit">
+        <button data-sos-once="true" data-sos="sos-right" id="save-items-continer" class="bg-gradient-{{$question->questionlibraries->first()->maincategory->first()->color}} position-fixed rounded-1 d-none d-lg-block ajax-submit" aria-label="save question">
             <i id="save-items-btn" class="fa-solid fa-plus text-white p-3 "></i>
         </button>
     </form>
 @else
-    <button data-sos-once="true" data-sos="sos-right" id="save-items-continer" class=" bg-gradient-{{$question->questionlibraries->first()->maincategory->first()->color}} position-fixed rounded-1 d-none d-lg-block" data-bs-toggle="modal" data-bs-target="#LoginModal" >
+    <button data-sos-once="true" data-sos="sos-right" id="save-items-continer" class="bg-gradient-{{$question->questionlibraries->first()->maincategory->first()->color}} position-fixed rounded-1 d-none d-lg-block" data-bs-toggle="modal" data-bs-target="#LoginModal" aria-label="save question">
         <i id="save-items-btn" class="fa-solid fa-plus text-white p-3 "></i>
     </button>
 @endverify
@@ -61,7 +135,7 @@
         <div class="row m-2">
         <div class="col-auto px-0">
             <a href="{{ $question->user->getPhoto() }}" class="avatar avatar-xl position-relative  nav-link ">
-                <img src="{{ $question->user->getPhoto() }}" alt="profile_image" class="w-100 h-100 rounded-4 ">
+                <img src="{{ $question->user->getPhoto() }}" alt="{{ $question->user->name }}" class="w-100 h-100 rounded-4 ">
             </a>     
         </div>
         <div class="col-auto my-auto mt-0">
@@ -83,11 +157,11 @@
             </a>
             @verify
                 @if(Auth::user()->id == $question->user_id)
-                    <a type="button" action="{{route('delete.question', $question->id)}}" style="left: 50%; top: 100px;"
-                    class="delete d-inline-block position-absolute trash-can-shook my-2"
+                    <button type="button" action="{{route('delete.question', $question->id)}}" style="left: 50%; top: 100px;"
+                    class="delete d-inline-block position-absolute trash-can-shook my-2" aria-label="delete question"
                     data-bs-toggle="modal" data-bs-target="#DeleteModal">
                     <i class="fa-solid fa-trash-can text-danger text-gradient fs-5"></i>
-                    </a>
+                    </button>
                 @endif
             @endverify
         </div>
@@ -166,11 +240,11 @@
                         @endif
                         @verify
                             @if(Auth::user()->id == $comment->user_id)
-                                <a type="button" action="{{route('delete.comment', $comment->id)}}"
-                                class="delete float-end me-3"
+                                <button type="button" action="{{route('delete.comment', $comment->id)}}"
+                                class="delete float-end me-3" aria-label="delete comment"
                                 data-bs-toggle="modal" data-bs-target="#DeleteModal">
                                 <i class="fa-solid fa-trash-can text-danger text-gradient fs-5"></i>
-                                </a>
+                                </button>
                             @endif
                         @endverify
                     </div>
@@ -181,12 +255,12 @@
                             @if(! session()->has('comment'.$comment->id.'IsLiked'))
                                 <form  action="{{route('Comment.AddLike',$comment->id)}}" method="POST" class="d-inline">
                                     @csrf
-                                    <button class="btn bg-gradient-light rounded-5 p-1  pb-0 ajax-submit">
+                                    <button class="btn bg-gradient-light rounded-5 p-1  pb-0 ajax-submit" aria-label="like comment">
                                         <i class=" text-info fa-solid fa-angle-up fs-4 fw-bolder"></i>
                                     </button>
                                 </form>
                             @else 
-                                <button class="btn bg-gradient-light rounded-5 p-1  pb-0" disabled>
+                                <button class="btn bg-gradient-light rounded-5 p-1  pb-0" disabled  aria-label="like comment disabled">
                                     <i class=" fa-solid fa-angle-up fs-4 fw-bolder"></i>
                                 </button>
                             @endif
@@ -196,19 +270,19 @@
                             @if(! session()->has('comment'.$comment->id.'IsDisLiked'))
                                 <form  action="{{route('Comment.AddDisLike',$comment->id)}}" method="POST" class="d-inline">
                                     @csrf
-                                    <button class="btn bg-gradient-light rounded-5 p-1 pb-0 ajax-submit">
+                                    <button class="btn bg-gradient-light rounded-5 p-1 pb-0 ajax-submit" aria-label="disLike comment">
                                         <i class=" text-dark fa-solid fa-angle-down fs-4 fw-bolder"></i>
                                     </button>
                                 </form>
                             @else 
-                                <button class="btn bg-gradient-light rounded-5 p-1 pb-0" disabled>
+                                <button class="btn bg-gradient-light rounded-5 p-1 pb-0" disabled aria-label="disLike comment disabled">
                                     <i class=" text-dark fa-solid fa-angle-down fs-4 fw-bolder"></i>
                                 </button>                            
                             @endif
                         </div>
 
                         <a href="{{ $comment->user->getPhoto() }}" class="avatar avatar-xl position-relative py-1 nav-link ">
-                            <img src="{{ $comment->user->getPhoto() }}" alt="profile_image" class="w-100 h-100 rounded-4 ">
+                            <img src="{{ $comment->user->getPhoto() }}" alt="{{ $comment->user->name }}" class="w-100 h-100 rounded-4 ">
                         </a>    
                             
                     </div>
@@ -233,11 +307,11 @@
                                 @if($index == 0) <span class="bg-gradient-warning py-1 px-2 rounded-3 d-none d-md-inline-block">افضل إجابة <i class="fa-solid fa-ranking-star text-warning"></i></span> @endif
                                 @verify
                                     @if(Auth::user()->id == $comment->user_id)
-                                    <a type="button" action="{{route('delete.comment', $comment->id)}}" style="left: 40px; top: 50px;"
-                                    class="delete d-none d-md-inline-block position-absolute trash-can-shook"
+                                    <button type="button" action="{{route('delete.comment', $comment->id)}}" style="left: 40px; top: 50px;"
+                                    class="delete d-none d-md-inline-block position-absolute trash-can-shook" aria-label="delete comment"
                                         data-bs-toggle="modal" data-bs-target="#DeleteModal">
                                         <i class="fa-solid fa-trash-can text-danger text-gradient fs-5"></i>
-                                    </a>
+                                    </button>
                                     @endif
                                 @endverify
                                 @if( $comment->created_at->diffInHours() <= 24) 
@@ -296,11 +370,11 @@
                             <div class="w-100 text-center d-md-none  ">
                                 @verify
                                     @if(Auth::user()->id == $reply->user_id)
-                                        <a type="button" action="{{route('delete.comment', $reply->id)}}"
-                                        class="delete  float-end me-3"
+                                        <button type="button" action="{{route('delete.comment', $reply->id)}}"
+                                        class="delete  float-end me-3" aria-label="delete comment"
                                         data-bs-toggle="modal" data-bs-target="#DeleteModal">
                                         <i class="fa-solid fa-trash-can text-danger text-gradient fs-5"></i>
-                                        </a>
+                                        </button>
                                     @endif
                                 @endverify
                             </div>
@@ -310,12 +384,12 @@
                                     @if(! session()->has('comment'.$reply->id.'IsLiked'))
                                         <form  action="{{route('Comment.AddLike',$reply->id)}}" method="POST" class="d-inline">
                                             @csrf
-                                            <button class="btn bg-gradient-light rounded-5 p-1  pb-0 ajax-submit">
+                                            <button class="btn bg-gradient-light rounded-5 p-1  pb-0 ajax-submit" aria-label="like reply">
                                                 <i class=" text-info fa-solid fa-angle-up fs-4 fw-bolder"></i>
                                             </button>
                                         </form>
                                     @else 
-                                        <button class="btn bg-gradient-light rounded-5 p-1  pb-0" disabled>
+                                        <button class="btn bg-gradient-light rounded-5 p-1  pb-0" disabled aria-label="like reply disabled">
                                             <i class=" fa-solid fa-angle-up fs-4 fw-bolder"></i>
                                         </button>
                                     @endif
@@ -325,19 +399,19 @@
                                     @if(! session()->has('comment'.$reply->id.'IsDisLiked'))
                                         <form  action="{{route('Comment.AddDisLike',$reply->id)}}" method="POST" class="d-inline">
                                             @csrf
-                                            <button class="btn bg-gradient-light rounded-5 p-1 pb-0 ajax-submit">
+                                            <button class="btn bg-gradient-light rounded-5 p-1 pb-0 ajax-submit" aria-label="disLike reply">
                                                 <i class=" text-dark fa-solid fa-angle-down fs-4 fw-bolder"></i>
                                             </button>
                                         </form>
                                     @else 
-                                        <button class="btn bg-gradient-light rounded-5 p-1 pb-0" disabled>
+                                        <button class="btn bg-gradient-light rounded-5 p-1 pb-0" disabled aria-label="disLike reply disabled">
                                             <i class=" text-dark fa-solid fa-angle-down fs-4 fw-bolder"></i>
                                         </button>                            
                                     @endif
                                 </div>
 
                                 <a href="{{ $reply->user->getPhoto() }}" class="avatar avatar-xl position-relative py-1 nav-link ">
-                                    <img src="{{ $reply->user->getPhoto() }}" alt="profile_image" class="w-100 h-100 rounded-4 ">
+                                    <img src="{{ $reply->user->getPhoto() }}" alt="{{ $reply->user->name }}" class="w-100 h-100 rounded-4 ">
                                 </a>          
                                 
                             </div>
@@ -363,11 +437,11 @@
                                 <div class="mb-1 fs-5 fw-bolder text-dark d-inline-block">
                                     @verify
                                         @if(Auth::user()->id == $reply->user_id)
-                                            <a type="button" action="{{route('delete.comment', $reply->id)}}" style="left: 40px; top: 50px;"
-                                            class="delete d-none d-md-inline-block position-absolute trash-can-shook"
+                                            <button type="button" action="{{route('delete.comment', $reply->id)}}" style="left: 40px; top: 50px;"
+                                            class="delete d-none d-md-inline-block position-absolute trash-can-shook" aria-label="delete reply"
                                             data-bs-toggle="modal" data-bs-target="#DeleteModal">
                                             <i class="fa-solid fa-trash-can text-danger text-gradient fs-5"></i>
-                                            </a>
+                                            </button>
                                         @endif
                                     @endverify
                                     @if( $reply->created_at->diffInHours() <= 24) 
@@ -396,7 +470,13 @@
         @endforeach
     @endif       
 </div>
-<div data-sos-once="true" data-sos="sos-blur" class="card m-1 m-md-4 py-4 px-2 px-md-3  border-0 rounded-5  shadow-sm mb-3 ">
+<div id="CKEContainer" data-sos-once="true" data-sos="sos-blur" class="card m-1 m-md-4 py-4 px-2 px-md-3  border-0 rounded-5  shadow-sm mb-3 ">
+    <div class="coverCKEForm rounded-4">
+        <div class="outer-spinner"></div>
+        <div class="inner-spinner"></div>
+        
+        <div class="one-moment fw-bolder fs-4">لحظة من فضلك ...</div>
+    </div>
     @verify
     <form id="ckeditorForm" method="POST" action="{{route('add.comment',$question->id)}}">
         @csrf   
@@ -409,7 +489,6 @@
         <div class=" mb-3">
             <div id="comment_error" style="display:none;" class='bg-danger text-white m-0 p-2 fw-bolder w-100 error_msg my-2'></div> 
         </div>
-        <!--  يجب متابعة بقية العمل في الكونتروللير -->
         <button data-sos-once="true" data-sos="sos-rotateZ" class=" mt-3 btn rounded-3 bg-gradient-{{$question->questionlibraries->first()->maincategory->first()->color}} fs-6  ckeditor-ajax-submit" data-editor-id="comment-ckeditor" data-editor-name="comment">أرسل الإجابة</button>
     </form>    
     @else
@@ -425,84 +504,60 @@
                     <div id="comment-ckeditor"></div>
                 </div>
             </div>
-            <!--  يجب متابعة بقية العمل في الكونتروللير -->
             <button  class=" mt-3 btn rounded-3 bg-gradient-{{$question->questionlibraries->first()->maincategory->first()->color}} fs-6">أرسل الإجابة</button>
         </div>
     </div>
     @endverify
     </div>
-    
-        <!--
-            The "super-build" of CKEditor 5 served via CDN contains a large set of plugins and multiple editor types.
-            See https://ckeditor.com/docs/ckeditor5/latest/installation/getting-started/quick-start.html#running-a-full-featured-editor-from-cdn
-            <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/ckeditor.js"></script>
-            <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/translations/ar.js"></script>
-        -->
-        <!--
-            Uncomment to load the Spanish translation
-            <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/translations/es.js"></script>
-        -->
-       
+     
 @endsection
 
 
 @section('script')
-<!-- 
-        قمت بتوقيف الكود للانه cdn يأخذ وقت في كل مرة اجرب الاكواد لذلك قمت مؤقتا بتحميله ووضعه في الملف CKEditor.min.js ثم استدعيه 
-        <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/ckeditor.js"></script>
-        <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/translations/ar.js"></script>
-        <script src="{{asset('public/assets/js/core/CKEditor.js')}}"></script>
-        <script src="{{asset('public/assets/js/core/CKEditor-ar.js')}}"></script>
-    -->
+    <!-- syntax code -->
+    <script src="{{asset('public/assets/prism/prism.js')}}"></script>
+    <script src="{{asset('public/assets/js/ABCLQ.js')}}"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/translations/ar.js"></script>
+    <script src="{{asset('public/assets/js/Handel-CKEditor.js')}}"></script>
+    <script>
+        @verify
+            create_save_btn("{{$question->questionlibraries->first()->maincategory->first()->color}}","{{route('save-question',$question->id)}}");
+        @else
+            create_save_btn_not_verify("{{$question->questionlibraries->first()->maincategory->first()->color}}","{{route('save-question',$question->id)}}");
+        @endverify
+        $(document).ready( function() {
+            createEditor( 'comment-ckeditor', 'ادخل الاجابة هنا' );
+            createEditor( 'reply-ckeditor', 'ادخل التعليق هنا' );
+        });
+        
+        $('#CKEContainer').ready(function() {
+            $(".coverCKEForm").fadeOut(500)  
+        });
+    </script>
 
-<!-- ckrditor يجب عليك نفعيل هذا الكود------------ وقفته مشان السرعة حاليا
-ckrditor -->
-<script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/ckeditor.js"></script>
-  <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/translations/ar.js"></script>
+    <script>
+        delete_buttons();
+        // ajax_function();
 
+        ckeditor_ajax_function();
+            comm_repl_btns();
+            function comm_repl_btns(){
+            let c_r_b = document.querySelectorAll(".comment-reply");
 
-<script>
-    // This sample still does not showcase all CKEditor 5 features (!)
-    // Visit https://ckeditor.com/docs/ckeditor5/latest/features/index.html to browse all the features.
-    create_save_btn("{{$question->questionlibraries->first()->maincategory->first()->color}}","{{route('save-question',$question->id)}}");
-    
-    $(document).ready( function() {
-        createEditor( 'comment-ckeditor', 'ادخل الاجابة هنا' );
-        createEditor( 'reply-ckeditor', 'ادخل التعليق هنا' );
-    });
-    
-   
-</script>
-
-<script>
-    delete_buttons();
-  // ajax_function();
-
-   
-   ckeditor_ajax_function();
-    
-    comm_repl_btns();
-    function comm_repl_btns(){
-    let c_r_b = document.querySelectorAll(".comment-reply");
-
-    for (let i = 0; c_r_b[i] ; i++) {
-      c_r_b[i].onclick=function(){
-        let crb_action_data=$(c_r_b[i]).attr('action');
-        $(".create-comment-reply-form").attr("action",crb_action_data);
-      }
-    }
-  }
-
-
-    let ckeditorContent = [...$('.ckeditor-display').children()];
-    ckeditorContent.forEach(element => {
-        let eleText = element.textContent.replace(/\s/g, "");
-        if(eleText.length === 0)
-        $(element).remove();
-    }); 
-
-
-    
-</script>
+            for (let i = 0; c_r_b[i] ; i++) {
+                c_r_b[i].onclick=function(){
+                    let crb_action_data=$(c_r_b[i]).attr('action');
+                    $(".create-comment-reply-form").attr("action",crb_action_data);
+                }
+            }
+        }
+        let ckeditorContent = [...$('.ckeditor-display').children()];
+        ckeditorContent.forEach(element => {
+            let eleText = element.textContent.replace(/\s/g, "");
+            if(eleText.length === 0)
+            $(element).remove();
+        }); 
+    </script>
 
 @endsection

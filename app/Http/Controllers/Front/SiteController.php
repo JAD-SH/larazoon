@@ -37,8 +37,8 @@ class SiteController extends Controller
         }
         $schemaCourses = Schema::itemList()->itemListElement($schemaArray);
         $schemajspnscript = $schemaCourses->toScript();
-        $category = MainCategory::where('route','Course')->active()->selection()->first();
-        return view('front.hellolaravel',compact('category','schemajspnscript'));
+        $maincategory = MainCategory::where('route','Course')->active()->selection()->first();
+        return view('front.hellolaravel',compact('maincategory','schemajspnscript'));
     }
     public function faq()
     {

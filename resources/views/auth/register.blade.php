@@ -32,9 +32,19 @@
     color:#444!important;
   }
   .nav-pills .nav-link.active{
-    background-color:#dd2466 !important;
-    color:white !important;
+    background-color: #ff83b0;
+    background-image: linear-gradient(195deg, #ff6b9d 0%, #ee1e6a 100%) !important;
+    color: white !important;
     border-radius: 8px !important;
+  }
+  .page-header {
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: 50%;
   }
 </style>
 <!-- head -->
@@ -51,8 +61,6 @@
                   <span class="text-white fw-bolder text-center mt-2 mb-0 p-2 fs-4">التسجيل في الموقع</span>
                 </div>
               </div>
-
-                
               <div class="card-body">
                 <form role="form" action="{{ route('register') }}" method="post"  enctype="multipart/form-data">
                 @csrf
@@ -217,10 +225,9 @@
       </div>
     </div>
   </main>
+
   <!--   Core JS Files   -->
-
   @include('layouts.front.js')
-
   <!--   Core JS Files   -->
   
 <script>

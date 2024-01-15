@@ -3,64 +3,29 @@
 @section('title','الملف الشخصي ')
 
 @section('meta_tags')
-<meta name="robots" content="noindex">
+  <meta name="robots" content="noindex">
 @endsection
 
 @section('css')
-
-  <style>
-    .active_btn{
-
-      background-color: #6c757d !important;
-      color: white !important;
-
-    }
-    .timeline:before {
-      height: 80% !important;
-    }
-    @media screen and (max-width: 767px)
-    { 
-      .new-box {
-        top: 13% !important;
-      }
-    }
-    @media screen and (min-width: 992px){
-      .new-box {
-        top: 19% !important;
-        left: -45% !important;
-      }
-    } 
-    li{
-      list-style:none;
-    }
-  </style>
-  
+  <link href="{{asset('public/assets/css/profile.css')}}" rel="stylesheet" />
 @endsection
- 
 
 @section('path')
   <li class="breadcrumb-item fw-bolder active " aria-current="page"> <i class="fa-solid fa-address-card "></i> {{Auth::user()->name}} </li>
 @endsection
 
-
 @section('content')
 
-
-
 <div class=" m-0 ">
-
-
   <div class=" ">
-    
       <div data-sos-once="true" data-sos="sos-blur" class="page-header rounded-5 py-3" style="background-image: url({{Site()->user_profile_background}}); height:200px;">
         <span class="mask  bg-gradient-primary"></span>
       </div>
-
       <div class="card m-1 m-md-4 p-2 p-md-4 pt-0  border-0 rounded-5  shadow-sm mb-5 mt-n6  ">
         <div class="row m-2">
             <div class="col-auto px-0">
               <a href="{{ asset('public/assets/'.Auth::user()->photo) }}" class="avatar avatar-xl position-relative py-1 nav-link pe-1">
-                <img src="{{ asset('public/assets/'.Auth::user()->photo) }}" alt="profile_image" class="w-100 h-100 rounded-4">
+                <img src="{{ asset('public/assets/'.Auth::user()->photo) }}" alt="{{ Auth::user()->name }}" class="w-100 h-100 rounded-4">
               </a>          
             </div>
             <div class="col-auto my-auto">
@@ -282,14 +247,11 @@
                   <button class="btn rounded-4 bg-gradient-danger my-0 py-2 px-4 fs-6 border-2 font-weight-bolder mx-1">لم يدعمنا بعد</button>
                 @endif
               </div>
-                
             </div>
           </div>
         </div>
     </div>
-
   </div>
-    
 </div>
 
 @if(Auth::user()->plan !== null)
@@ -297,8 +259,6 @@
 @if ($planProgres = PlanProgres()) @endif
   <div class=" my-3 ">
     <div class="row m-0">
-
-
       <div class="col-lg-8 col-md-12 mb-2 mb-lg-0 p-0">
         <div class="card m-1 m-md-4 p-2 p-md-4 pt-0  border-0 rounded-5  shadow-sm  overflow-hidden">
           <div class=" py-2">
@@ -344,7 +304,7 @@
                     <td class="align-middle px-3 ">
                       <a class="d-flex py-1 nav-link " href="{{route('show-course',$course->slug)}}">
                         <div class="">
-                          <img src="{{$course->photo}}" class="avatar avatar-sm mx-1" alt="xd">
+                          <img src="{{$course->photo}}" class="avatar avatar-sm mx-1" alt="{{$course->title}}">
                         </div>
                         <div class="d-flex flex-column justify-content-center p-0">
                           <span class="mb-0 text-uppercase  fw-bolder text-dark"> {{$course->title}}</span>
@@ -439,16 +399,8 @@
             <button  data-sos-once="true" data-sos="sos-left"  type="button" class="btn rounded-3 bg-gradient-danger m-3 w-85  fs-6" data-bs-toggle="modal" data-bs-target="#UnfollowPlanModal">
                 الغاء متابعة الخطة <i class="fa-solid fa-trash-can text-gradient"></i>
             </button>
-
             @include('front.includes.alerts.unfollow-plan-modal')
-
           </div>
-          
-
-          
-
-
-
         </div>
       </div>
       <div class="col-lg-4 col-md-9  p-0">
@@ -535,8 +487,6 @@
   </div>
 @endif
 
-
-
     <div class=" mb-md-3 mb-5">
       <div class="card m-1 m-md-4 p-2 p-md-4 pt-0  border-0 rounded-5  shadow-sm overflow-hidden">
         <div  data-sos-once="true" data-sos="sos-top"  class=" py-2">
@@ -571,7 +521,7 @@
                   <td class="align-middle px-3 ">
                     <a class="d-flex py-1 nav-link " href="{{route('show-course',$course->slug)}}">
                       <div class="">
-                        <img src="{{$course->photo}}" class="avatar avatar-sm mx-1" alt="xd">
+                        <img src="{{$course->photo}}" class="avatar avatar-sm mx-1" alt="{{$course->title}}">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <span class="mb-0 text-uppercase  fw-bolder text-dark"> {{$course->title}}</span>
@@ -594,10 +544,7 @@
                     <td class=" px-3 align-middle text-center text-sm">
                       <span class="text-sm fw-bold">{{$course->lessons->count()}}</span>
                     </td>
-                    
-
                     @if($course->lessons()->whereHas('exams')->count() > 0)
-                   
                     @if ($courseProgres = CourseProgres($course)) @endif
                       <td class="align-middle">
                         <div class="progress-wrapper w-75 mx-auto">
@@ -697,22 +644,15 @@
                   </td>
                 </tr>
                 @endforeach
-                                
                 
-                  
-              
               </tbody>
             </table>
-            
           </div>
       </div>
       @include('front.includes.alerts.exam-modal')
       @include('front.includes.alerts.delete-modal', ['title_warning' => 'هل تريد الغاء المتابعة هذا الكورس','description_warning' => 'اذا قمت بالغاء المتابعة هذا الكورس ستخسر تقدمك وجميع الاختبارات الخااصة لهذا الكورس ولن تتمكن من استعادته مجددا'])
 
     </div>
-
-
-
 
       <div class="mx-1 my-2 m-md-4  position-relative z-index-2 ">
         <div data-sos-once="true" data-sos="sos-zoom-out" class="bg-gradient-info text-center shadow-primary py-3 rounded-5 shadow-sm text-white fs-6 fw-bolder text-capitalize mb-3">
@@ -767,7 +707,7 @@
                 </div>
                 
             </div>
-  </a>
+        </a>
       @endforeach
     @else
       <div class="fs-4 text-center p-2 p-md-5 pb-5 fw-bolder">لم تقوم بإضافة اسئلة بعد </div>
@@ -780,7 +720,22 @@
 
 <script>
   scroll_to_right();
- 
+  function scroll_to_right(){
+    let scroll_right = document.querySelectorAll('.scroll-right');
+    scroll_right.forEach(element => {
+        $(element).siblings('div.table-responsive').scroll(function(){
+            $(element).removeClass('d-none');
+            if($(this).scrollLeft() == 1 || $(this).scrollLeft() == 0){
+                $(element).addClass('d-none');
+            }
+        });
+        $(element).click(function(){
+            $(element).siblings('div.table-responsive').animate({
+                scrollLeft: 0
+            }, 300);
+        })
+    });
+  }
   delete_buttons();
  
   set_course_info();
@@ -822,13 +777,11 @@
   function checkFunction(itemclass) {
     let items = document.querySelectorAll(`.${itemclass} li div`);
     let arrayItems=[...items];
-
     arrayItems.forEach(item => {
       item.querySelector("input[type='checkbox']").checked = false;
       if(item.classList.contains("active")){
         item.querySelector("input[type='checkbox']").checked = true;
       }
-
     });
   }
   

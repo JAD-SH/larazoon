@@ -161,6 +161,7 @@
                     <th class=" text-center fw-bolder text-nowrap">لوجو الموقع</th>
                     <th class=" text-center fw-bolder text-nowrap">خلفية الملفات الشخصية</th>
                     <th class=" text-center fw-bolder text-nowrap">وصف او نيذة عن الموقع</th>
+                    <th class=" text-center fw-bolder text-nowrap">مواقع التواصل</th>
                     <th class=" text-center fw-bolder text-nowrap">اخر تعديل</th>
                     <th class=" text-center fw-bolder text-nowrap">العمليات</th>
                 </tr>
@@ -204,6 +205,33 @@
                         </div>
                     </td>
                     
+                    <td class=" text-center">
+                      <div class="m-3">
+                        <span class="mb-0 fw-bolder">
+                          @if(Site() -> facebook !== null)
+                            <a class="m-2" target="_blank" href="{{Site() -> facebook}}">
+                              <i class="fab fa-facebook fa-lg text-info fs-5"></i>
+                            </a>
+                          @endif 
+                          @if(Site() -> twitter !== null)
+                            <a class="m-2" target="_blank" href="{{Site() -> twitter}}">
+                              <i class="fab fa-twitter fa-lg text-info fs-5"></i>
+                            </a>
+                          @endif 
+                          @if(Site() -> instagram !== null)
+                            <a class="m-2" target="_blank" href="{{Site() -> instagram}}">
+                              <i class="fab fa-instagram fa-lg text-warning fs-5"></i>
+                            </a>
+                          @endif 
+                          @if(Site() -> github !== null)
+                            <a class="m-2" target="_blank" href="{{Site() -> github}}">
+                              <i class="fab fa-github fa-lg text-dark fs-5"></i>
+                            </a>
+                          @endif
+                        </span>
+                      </div>
+                    </td>
+
                     <td class=" text-center">
                       <div class="m-3">
                         <span class="mb-0 fw-bolder">{{Site() -> updated_at->diffForHumans()}}</span>

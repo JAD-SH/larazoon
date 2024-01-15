@@ -1,5 +1,4 @@
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
@@ -8,23 +7,32 @@
  @include('layouts.front.head')
 <style>
   .glossy{
-      width:200%;
-      height: 30px;
-      position: absolute;
-      filter: blur(7px);
-      background-color: #ffffffa1;
-      z-index: 2;
-      transform: rotateZ(45deg);
-      top:100%;
-      left:-110%;
-      animation-name: AGlossy;
-      animation-duration: 2s;
-      animation-delay: 0s;
-      animation-iteration-count: infinite;
+    width:200%;
+    height: 30px;
+    position: absolute;
+    filter: blur(7px);
+    background-color: #ffffffa1;
+    z-index: 2;
+    transform: rotateZ(45deg);
+    top:100%;
+    left:-110%;
+    animation-name: AGlossy;
+    animation-duration: 2s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
   }
   @keyframes AGlossy {
-      from {top:100%;left:-110%;}
-      to {top:-110%;left:100%;}
+    from {top:100%;left:-110%;}
+    to {top:-110%;left:100%;}
+  }
+  .page-header {
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: 50%;
   }
 </style>
 <!-- head -->
@@ -42,8 +50,6 @@
                   <span class="text-white fw-bolder text-center mt-2 mb-0 p-2 fs-4">تسجيل الدخول</span>
                 </div>
               </div>
-
-                
               <div class="card-body p-4">
                 @if(count($errors) > 0)
                   @foreach( $errors->all() as $message )
@@ -81,7 +87,6 @@
                     @if (Route::has('password.request'))
                       <a href="{{ route('password.request') }}" class="btn btn-light  fw-bolder  fs-6 ">نسيت كلمة المرور</a>
                     @endif
-                                     
                     <a href="{{route('register')}}" class="btn btn-light  fw-bolder  fs-6 d-inline-flex justify-content-center align-items-center"><i class="fs-5 fa-sharp fa-solid fa-plus text-dark mx-1" style="color:#fa5790 !important;"></i> حساب جديد </a>
                   </p>
               </div>
@@ -89,10 +94,9 @@
       </div>
     </div>
   </main>
+
   <!--   Core JS Files   -->
-
   @include('layouts.front.js')
-
   <!--   Core JS Files   -->
   
 </body>

@@ -1,0 +1,105 @@
+.active_btn{
+    background-color: #6c757d !important;
+    color: white !important;
+  }
+  .timeline:before {
+    height: 80% !important;
+  }
+  @media screen and (max-width: 767px)
+  { 
+    .new-box {
+      top: 13% !important;
+    }
+  }
+  @media screen and (min-width: 992px){
+    .new-box {
+      top: 19% !important;
+      left: -45% !important;
+    }
+  } 
+  li{
+    list-style:none;
+  }
+  .progress {
+      --bs-progress-height: 6px;
+      --bs-progress-font-size: 0.75rem;
+      --bs-progress-bg: #f0f2f5;
+      --bs-progress-border-radius: 0.125rem;
+      --bs-progress-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+      --bs-progress-bar-color: #fff;
+      --bs-progress-bar-bg: #521f30;
+      --bs-progress-bar-transition: width 0.6s ease;
+      display: flex;
+      height: var(--bs-progress-height);
+      overflow: hidden;
+      font-size: var(--bs-progress-font-size);
+      background-color: var(--bs-progress-bg);
+      border-radius: var(--bs-progress-border-radius);
+  }
+  .table td .progress {
+      height: 3px;
+      width: 120px;
+      margin: 0;
+      overflow: visible;
+  }
+  .mask {
+      position: absolute;
+      background-size: cover;
+      background-position: center center;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.2;
+  }  
+  .timeline {
+      position: relative;
+  }
+  .timeline-step {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      left: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #fff;
+      text-align: center;
+      transform: translateX(-50%);
+      font-size: 1rem;
+      font-weight: 600;
+      z-index: 1;
+      right: 1rem;
+      transform: translateX(50%);
+      left: 1rem;
+  }
+  .timeline-content {
+      margin-right: 45px;
+      margin-left: 0;
+      max-width: 30rem;
+      width: auto;
+      position: relative;
+      padding-top: 0.35rem;
+      top: -6px;
+  }
+  .timeline.timeline-one-side:before {
+      right: 1rem;
+  }
+  .timeline:before {
+      content: '';
+      position: absolute;
+      top: .5rem!important;
+      left: 1rem;
+      border-right: 2px solid #7b7b7b14;
+      height: 78% !important;
+  }
+  .page-header {
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      background-size: cover;
+      background-position: 50%;
+  }

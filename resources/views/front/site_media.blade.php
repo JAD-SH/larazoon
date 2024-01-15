@@ -1,40 +1,32 @@
-
 @extends('layouts.front.site')
 
 @section('title','تواصلك مع الموقع')
-
 
 @section('meta_tags')
 <meta name="robots" content="noindex">
 @endsection
 
-
 @section('css')
-
-<style>
-  .accordion-button::after {
-    color:white !important;
-  }
-</style>
+  <style>
+    .accordion-button::after {
+      color:white !important;
+    }
+  </style>
 @endsection
 
 @section('path')
-
     <li class="breadcrumb-item fw-bolder"><a class="nav-link d-inline" href="{{route('profile')}}">ملفي الشخصي <i class="fa-solid fa-address-card "></i></a></li>
     <li class="breadcrumb-item fw-bolder active " aria-current="page">ردود ادارة الموقع عليك</li>
 @endsection
 
 @section('content')
 
-   
   <div class="card  m-1 m-md-4 p-2 p-md-4  border-0 rounded-5  shadow-sm mb-3">
       
   @if($notifies !== null)
   <div class="accordion accordion-flush rounded-5 overflow-hidden" id="accordionFlushExample">
  
   @foreach($notifies as $index=>$notify)
-
-  
 
       <div data-sos-once="true"  data-sos="sos-blur" class="accordion-item">
         <h2 class="accordion-header" id="flush-heading-{{$index+1}}">
@@ -68,15 +60,11 @@
             {{$notify->notificationreply->message}}
             @if($notify->notificationreply->code !== null)
               <div class="my-3 position-relative">
-                  <button class="copy-btn position-absolute btn 
-                  bg-gradient-info
-                  py-1 px-3 m-0 fs-6 fw-bolder">
+                  <button class="copy-btn position-absolute btn bg-gradient-info py-1 px-3 m-0 fs-6 fw-bolder" aria-label="copy code">
                       <i class="fs-4 fa-regular fa-paste"></i>
                   </button>
-                  <pre class="  p-0  fs-5 "><code  class="language-javascript">
-
+                  <pre class="p-0 fs-5 "><code  class="language-javascript">
                   {{$notify->notificationreply->code}}
-
                   </code></pre>
               </div>
             @endif
@@ -97,12 +85,39 @@
    
 @endsection
 
-
 @section('script')
-
 <script>
-  // تابع من هنا بحيث تحل مشكلة عدم امكانية ارسال الرسائل الى الادمن بسبب عجم تواجد استدعاء لدالة ajax
+  $(document).ready(function(){
+    active_copy_btns();
+    create_copy_btns();
+  });
+  function active_copy_btns(){
+    let copy_btns = document.querySelectorAll(".copy-btn");
+    if(copy_btns){
+      copy_btns.forEach(btn => {
+        btn.onclick=function(){
+          if(copy_btns){
+            copy_btns.forEach(element => {
+              $(element).removeClass("bg-gradient-info");
+              $(element).addClass("bg-gradient-primary");
+            });
+          }
+          $(this).removeClass("bg-gradient-primary");
+          $(this).addClass("bg-gradient-info");
+          let text=$(this).siblings('pre').children('code').text();
+          navigator.clipboard.writeText(text);
+          $(btn).css('color','initial');
+        }
+      });
+    }
+  } 
+  function create_copy_btns(){
+    let pre_code=$(".code-toolbar .toolbar");
+    let pre_code_arr =[...pre_code];
+    pre_code_arr.forEach(element => {
+      $(element).before('<button class="copy-btn position-absolute btn bg-gradient-primary py-1 px-3 m-0 fs-6 fw-bolder" style="z-index:1;"><i class="fs-4 fa-regular fa-paste"></i></button>');
+    });
+  }
 </script>
-
 @endsection
 

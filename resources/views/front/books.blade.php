@@ -1,13 +1,16 @@
 @extends('layouts.front.site')
 
 @section('css')
-<link href="{{asset('public/assets/css/book.css')}}" rel="stylesheet" />
-<style>
-     
-       .top-3-books{
-        height: 10px;
-       }
-</style>
+    <link href="{{asset('public/assets/css/book.css')}}" rel="stylesheet" />
+    <link href="{{asset('public/assets/css/maincategory.css')}}" rel="stylesheet" />
+    <style>
+        ::-webkit-scrollbar-thumb {
+            background: var(--bs-{{$maincategory->color}});
+        }
+        .top-3-books{
+         height: 10px;
+        }
+    </style>
 @endsection
 
 @if($books->count() > 0)
@@ -83,18 +86,12 @@
 
 
 <div class="row m-0 mx-md-4 content justify-content-center">  
-    
-    
-
-            @foreach($books as $index=>$book)
-
-            <div data-sos-once="true" data-sos="sos-zoom-in" class="col-sm-11 col-md-6 col-lg-4 p-0">
-
-                <div class=" position-relative card d-flex  align-items-center justify-content-around   m-2 border-0 rounded-5  shadow-sm card-book overflow-hidden">
-                    <div class="position-absolute w-100 bg-gradient-@if( $index <= 2)danger @else{{$maincategory->color}} @endif top-0 top-3-books"></div>
-                    <a class="w-100  " href="{{route('Book.show',$book->slug)}}">
+    @foreach($books as $index=>$book)
+        <div data-sos-once="true" data-sos="sos-zoom-in" class="col-sm-11 col-md-6 col-lg-4 p-0">
+            <div class=" position-relative card d-flex  align-items-center justify-content-around   m-2 border-0 rounded-5  shadow-sm card-book overflow-hidden">
+                <div class="position-absolute w-100 bg-gradient-@if( $index <= 2)danger @else{{$maincategory->color}} @endif top-0 top-3-books"></div>
+                <a class="w-100  " href="{{route('Book.show',$book->slug)}}">
                     <div class="w-100 justify-content-center align-items-center d-flex px-3 pb-3  pt-5">
-                    
                         <div class="book my-3 me-n3 me-md-0">
                             <div class="book-sign">
                             </div>
@@ -104,41 +101,22 @@
                                     <div class="spring-point"></div>
                                     <div class="spring-point"></div>
                                     <div class="spring-point"></div>
-                                    
                                 </div>
-                                <img src="{{$book->photo}}" alt="">
+                                <img src="{{$book->photo}}" alt="{{$book->title}}">
                             </div>
-                            <div class="paper middle-bages bg-1">
-
-                            </div>
-                            <div class="paper middle-bages bg-2">
-
-                            </div>
-                            <div class="paper middle-bages bg-3">
-
-                            </div>
-                            <div class="paper middle-bages bg-4">
-
-                            </div>
-                            <div class="paper middle-bages bg-5">
-
-                            </div>
-                            <div class="paper back-bage">
-
-                            </div>
+                            <div class="paper middle-bages bg-1"></div>
+                            <div class="paper middle-bages bg-2"></div>
+                            <div class="paper middle-bages bg-3"></div>
+                            <div class="paper middle-bages bg-4"></div>
+                            <div class="paper middle-bages bg-5"></div>
+                            <div class="paper back-bage"></div>
                         </div>
                     </div>    
                     <div class=" p-3 mx-md-3 mx-lg-0 w-100 text-start">
-                            <div class="mb-2 mt-2 mt-md-0 fs-5 text-dark fw-bolder ">
-                            {{$book->title}}
-                            </div>
-                            
-                        
+                        <div class="mb-2 mt-2 mt-md-0 fs-5 text-dark fw-bolder ">{{$book->title}}</div>
                         <div class="my-3  my-md-2  ">
-                            
                             <span class="badge bg-gradient-{{$maincategory->color}}  text-light rounded-pill text-sm"># {{$index}} </span>
                             <span class="badge bg-gradient-{{$maincategory->color}}  text-light rounded-pill text-sm"><i class="fa-solid fa-tag"></i>  {{$book->booklibrary->title}}</span>
-                                                
                         </div>
                         <div class="my-2 fw-bolder ">
                             @if( $index <= 2)<span class="badge text-sm"><i class="fa-solid fa-ranking-star text-warning"></i>  </span>@endif
@@ -147,17 +125,13 @@
                             <span class="badge text-secondary text-sm"><i class="fa-solid fa-download text-{{$maincategory->color}}"></i>  {{$book->downloads}}</span>
                         </div>
                     </div>
-                    </a>
-                </div>
-            </div> 
-            @endforeach
-            
-            <div class=" d-flex align-items-center justify-content-center mt-3">
-                
-                {!! $books ->onEachSide(2)-> links() !!}
+                </a>
             </div>
-            
-    
+        </div> 
+    @endforeach
+    <div class=" d-flex align-items-center justify-content-center mt-3">
+        {!! $books ->onEachSide(2)-> links() !!}
+    </div>
 </div>
 
 
@@ -171,7 +145,8 @@
 @endif
 
 @section('script')
-<script>
-   
-</script>
+    <script src="{{asset('public/assets/js/maincategory.js')}}"></script>  
+    <script>
+    create_ele_img();
+    </script>
 @endsection

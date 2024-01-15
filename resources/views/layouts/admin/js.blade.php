@@ -458,8 +458,7 @@ $( window ).scroll(function() {
   
   
   $('.progress-scroll-bage-x').css('width', `${persent_value}%` );
-  $('input.custome-scrollbar-y').attr('value', `${persent_value}` );
-  //$( "span" ).css( "display", "inline" ).fadeOut( "slow" );
+   //$( "span" ).css( "display", "inline" ).fadeOut( "slow" );
 });
 
 

@@ -57,6 +57,10 @@ class SiteController extends Controller
                 'site_name'=>$request->site_name,
                 'ar_site_name'=>$request->ar_site_name,
                 'site_description'=>$request->site_description,
+                'facebook'=>$request->facebook,
+                'twitter'=>$request->twitter,
+                'instagram'=>$request->instagram,
+                'github'=>$request->github,
             ]);
             return redirect()-> route('dashboard')
             ->with([

@@ -1,18 +1,12 @@
-
 @extends('layouts.front.site')
 
-
 @section('meta_tags')
-<meta name="robots" content="noindex">
+    <meta name="robots" content="noindex">
 @endsection
 
 @section('css')
 
-    <style>
-         
-    </style>
- @endsection
-
+@endsection
 
 @section('path')
     <li class="breadcrumb-item fw-bolder active " aria-current="page">ادعم الموقع</li>
@@ -28,17 +22,11 @@
         @verify
         <a href="{{route('score-support')}}" class=" btn rounded-3 btn-dark  my-1 py-2 px-3 fs-6"  >هل قمت بدعمنا؟ اضغط لتحصل على ترتيب في قائمة الداعمين</a>
         @else
-        <a class=" btn rounded-3 btn-dark  my-1 py-2 px-3 fs-6"  data-bs-toggle="modal" data-bs-target="#LoginModal">هل قمت بدعمنا؟ اضغط لتحصل على ترتيب في قائمة الداعمين</a>
+        <button class=" btn rounded-3 btn-dark  my-1 py-2 px-3 fs-6"  data-bs-toggle="modal" data-bs-target="#LoginModal">هل قمت بدعمنا؟ اضغط لتحصل على ترتيب في قائمة الداعمين</button>
         @endverify
     </div>
 @endsection
 
-
 @section('script')
 
-<script>
-    
-</script>
-
- 
 @endsection

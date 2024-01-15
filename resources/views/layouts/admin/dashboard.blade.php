@@ -22,7 +22,6 @@
   </head>
 
 <body class="@isset($_COOKIE['DarkMode']) dark @endisset">
-  <input class="custome-scrollbar-y position-fixed d-none d-md-block" type="range" min="0" max="100" value="0" id="">
     
   <div class="progress-scroll-bage-x-line  ">
     <div class="progress-scroll-bage-x bg-gradient-danger "></div>

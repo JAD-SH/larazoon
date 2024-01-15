@@ -52,10 +52,11 @@ class UserExperienceController extends Controller
             ]);
         }
     }
-    public function deleteExperience($experience_id)
+    public function deleteExperience()
     {
         try{
-            $experience = UserExperience::where('user_id',Auth::user()->id)->find($experience_id);
+            $experience = UserExperience::where('user_id',Auth::user()->id)->first();
+            $experience_id = $experience->id;
             if($experience == null){
                 return response() -> json([
                     'notifyType' => 'warningToast',
@@ -66,8 +67,8 @@ class UserExperienceController extends Controller
             $experience ->delete();
             return response() -> json([
                 'notifyType' => 'successToast',
-                'notifyTitle' => 'حذف السؤال ',
-                'notifyMsg' => 'تم حذف السؤال بنجاح ',
+                'notifyTitle' => 'حذف التجربة ',
+                'notifyMsg' => 'تم حذف التجربة بنجاح ',
                 'item_id'=>$experience_id
             ]);
         }catch (\Exception $ex){

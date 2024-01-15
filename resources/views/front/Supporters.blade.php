@@ -1,16 +1,14 @@
-
 @extends('layouts.front.site')
 
-
 @section('meta_tags')
-<meta name="robots" content="noindex">
+    <meta name="robots" content="noindex">
 @endsection
+
 @section('css')
     <style>
         .btn i {
             color:unset !important;
         }
-        
         .btn-check:checked+.btn i {
             color: var(--bs-btn-active-color) !important;
         }
@@ -20,45 +18,34 @@
             transition:all .5s;
             animation-iteration-count: infinite;
             opacity: 0;
-             
         }
-        
-       .text-shadow{
-        text-shadow: 1px 1px 1px #ffffff80, -1px -1px 1px #ffffff80;
-       }
-
-
-       @media screen and (min-width: 767px){
-            
-        
-
+        .text-shadow{
+            text-shadow: 1px 1px 1px #ffffff80, -1px -1px 1px #ffffff80;
+        }
+        @media screen and (min-width: 767px){
             .dollars{
                 animation-name: inScale;
                 animation-duration: 2s;
                 transition:all .5s;
                 animation-iteration-count: infinite;
             }
-
             @keyframes inScale {
                 0% {scale: 1;}
                 50% {scale: 1.5;}
                 100% {scale: 1;}
             }
         }
-@keyframes inIndex {
-    0%   { opacity: 0; display:none;}
-  
-     50% {  opacity: 1; display:block;}
-     100% {  opacity: 0; display:none;}
-}
-
+        @keyframes inIndex {
+            0%   { opacity: 0; display:none;}
         
-.sscaallee:hover{
-    scale:1.1;
-}
+            50% {  opacity: 1; display:block;}
+            100% {  opacity: 0; display:none;}
+        }
+        .sscaallee:hover{
+            scale:1.1;
+        }
     </style>
- @endsection
-
+@endsection
 
 @section('path')
     <li class="breadcrumb-item fw-bolder active " aria-current="page">الداعمين الأساطير</li>
@@ -87,15 +74,11 @@
             ادعمنا بالمبلغ الذي تراه مناسبا   
         </a>
     </div> 
-
     
     @isset($top_supporters)
-    
         <div class=" m-0 content  p-0">
-
         @if($top_supporters->count() > 0)
             <div class=" ">
-                
                 @foreach($top_supporters as $index=>$supporter)
                     <div class="m-2 mb-3 m-md-4" data-sos-once="true" data-sos="sos-right" >
                         @if($index == 0)
@@ -113,17 +96,13 @@
                             <div class="d-flex flex-row">
                                 <div class="col-auto px-0 me-2 d-flex justify-content-center align-items-center">
                                     <a href="{{ $supporter->user->getPhoto() }}" class=" avatar-xl position-relative  nav-link "  >
-                                        <img src="{{ $supporter->user->getPhoto() }}" alt="profile_image" class="@if($index >= 0 && $index <= 2) text-shadow @endif w-100 rounded-4 h-100">
-                                        <!-- <div class=" position-absolute bg-light d-none d-md-block"  style=" top:0; left:0; border-radius: 50%">
-                                            <i class="fa-solid fa-messages-question" style="font-size:74px !important; "></i> 
-                                        </div>
-                                        -->
+                                        <img src="{{ $supporter->user->getPhoto() }}" alt="{{$supporter->user->name}}" class="@if($index >= 0 && $index <= 2) text-shadow @endif w-100 rounded-4 h-100">
                                         <span class="position-absolute fw-bolder @if($index >= 0 && $index <= 2) index  @endif  text-shadow fs-5 text-info d-none d-md-inline-block" style="top:0; right:5px;">#{{$index+1}}</span>
                                         <span class="position-absolute fw-bolder  text-shadow   fs-4 text-info d-md-none" style="top:0; right:5px;">#{{$index+1}}</span>
                                     </a> 
                                 </div>      
                                 <div class="py-2  ">
-                                    <a href="{{route('show-profile',$supporter->user->username)}}" class="nav-link text-md-start text-dark @if($index >= 0 && $index <= 2) text-shadow @endif fw-bolder fs-5 mx-3 mx-md-0 link-block-idea-side-content">
+                                    <a href="{{route('show-profile',$supporter->user->username)}}" class="nav-link text-md-start text-dark @if($index >= 0 && $index <= 2) text-shadow @endif fw-bolder fs-5 mx-3 mx-md-0">
                                         <span class=" fs-4  "@if($index >= 0 && $index <= 2)  style="color:#515151 !important;"  @endif>{{$supporter->user->name}}</span>
                                         @verify
                                             @if(Auth::user()->id == $supporter->user->id)
@@ -135,7 +114,6 @@
                                         {{$supporter->user->interest}}
                                     </p>
                                 </div>
-                            
                             </div>
                             <div class="d-flex d-md-none my-3  p-2 justify-content-between shadow-sm">
                                 <span class=" fs-5 px-2 fw-bolder @if($index >= 0 && $index <= 2) text-light @endif">{{$supporter->support_by}}</span>
@@ -152,7 +130,6 @@
                                 {{$supporter->support_value}} $</div>
                                   
                             </div> 
-                            
                             <div class="p-2 fw-bolder text-light d-flex justify-content-center align-items-center">
                                 @if($supporter->user->facebook !== null)
                                 <a class="m-1 shadow p-2" target="_blank" href="{{$supporter->user->facebook}}">
@@ -179,7 +156,6 @@
                                 {{$supporter->support_by}}  
                             </div> 
                             <div class="d-none d-md-inline-block @if($index >= 0 && $index <= 2) dollars text-light @endif p-2 fw-bolder fs-5 shadow-sm">
-                                 
                                 @if($index >= 0 && $index <= 2)
                                 <i class="fa-solid fa-gem  fs-5 px-2 text-info"></i> 
                                 @elseif($index >= 3 && $index <= 5)
@@ -193,7 +169,6 @@
                             </div> 
                         </div> 
                     </div>
-
                 @endforeach
                 <div  class=" m-3 m-md-4 text-center">
                     <a href="{{route('all_supporters_page')}}" data-sos-once="true" data-sos="sos-rotateZ" class="btn btn-primary m-1 fw-bolder rounded-3 fs-5">
@@ -206,14 +181,10 @@
         @endif
     @endisset
     @isset($all_supporters)
-    
         <div class=" m-0 content  p-0">
-
         @if($all_supporters->count() > 0)
             <div class=" ">
-                
                 @foreach($all_supporters as $index=>$supporter)
-                     
                     <div data-sos-once="true" data-sos="sos-left" class=" position-relative  card m-1 m-md-4 p-3 border-0 rounded-5  shadow-sm mb-3" >
                         <div class="d-block d-md-flex justify-content-between align-items-center">
                             <div class="d-flex flex-row">
@@ -228,7 +199,7 @@
                                     </a> 
                                 </div>      
                                 <div class="py-2  ">
-                                    <a href="{{route('show-profile',$supporter->user->username)}}" class="nav-link text-md-start text-dark  fw-bolder fs-5 mx-3 mx-md-0 link-block-idea-side-content">
+                                    <a href="{{route('show-profile',$supporter->user->username)}}" class="nav-link text-md-start text-dark  fw-bolder fs-5 mx-3 mx-md-0">
                                         <span class=" fs-4  " >{{$supporter->user->name}}</span>
                                         @verify
                                             @if(Auth::user()->id == $supporter->user->id)
@@ -285,15 +256,8 @@
     
     </div>
 
-
 @endsection
-
 
 @section('script')
 
-<script>
-    
-</script>
-
- 
 @endsection

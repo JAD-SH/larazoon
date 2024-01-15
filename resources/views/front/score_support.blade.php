@@ -1,20 +1,16 @@
-
 @extends('layouts.front.site')
 
-
 @section('meta_tags')
-<meta name="robots" content="noindex">
+    <meta name="robots" content="noindex">
 @endsection
 
 @section('css')
-
     <style>
          .form-check{
             line-height: 15px;
          }
     </style>
- @endsection
-
+@endsection
 
 @section('path')
     <li class="breadcrumb-item fw-bolder active " aria-current="page">سجل في ترتيب الداعمين</li>
@@ -25,12 +21,10 @@
     <div class="text-center  mb-3  m-1 m-md-4 py-4 px-2 px-md-3  ">
         <p class="fs-5 fw-bolder">عزيزي <span class="text-info fs-5">{{Auth::user()->name}}</span> بعد عملية دعم الموقع يمكنك اذا اردت ان تحصل على ترتيب في قسم الداعمين وكلما كانت قيمة دعمك اكبر كلما حصلت على ترتيب اعلى ... وبعد قيامك بدعم الموقع يجب عليك ادخال بيانات الدعم لتحصل على ترتيب في قسم الداعمين وبعدها في مدة اقصاها 24 ساعة سنرسل لك رسالة تأكيد على ملف الشخصي مضمونها نجاح عملية ادخالك في ترتيب الداعمين وشكرا.</p>
     </div>
-     
     <div data-sos-once="true" data-sos="sos-blur" class="card m-1 m-md-4 py-4 px-2 px-md-3  border-0 rounded-5  shadow-sm mb-3 ">
         <form class="" id="ckeditorForm" method="POST" action="{{route('save-score-support')}}">
             @csrf   
             <div class="d-lg-flex justify-content-around text-center my-4">
-
                 <div class="col-11 col-md-7 col-lg-5 d-inline-block">
                     <label for="email" class="fw-bolder fs-5 my-2 float-start">البريد الالكتروني الداعم</label>
                     <div class="input-group input-group-outline  mb-3 mt-1">
@@ -76,12 +70,6 @@
     </div>
 @endsection
 
-
 @section('script')
 
-<script>
-    
-</script>
-
- 
 @endsection

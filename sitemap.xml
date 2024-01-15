@@ -2,175 +2,313 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
     <url>
         <loc>http://localhost/HelloLaravel</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/HelloLaravel/Subcategories</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/HelloLaravel/Course</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/HelloLaravel/Article</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/HelloLaravel/Book</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/HelloLaravel/Question</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>http://localhost/HelloLaravel/Course/css</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>http://localhost/HelloLaravel/Course/css/css</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>http://localhost/HelloLaravel/Course/css/sdsda</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>http://localhost/HelloLaravel/Course/css/ئئئئئ</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>http://localhost/HelloLaravel/Course/css/ئئئئئas</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>http://localhost/HelloLaravel/Course/css/asas</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>http://localhost/HelloLaravel/Course/css/sdsdssd</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>http://localhost/HelloLaravel/Course/css/cswes</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>http://localhost/HelloLaravel/Course/css/csswewew</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>http://localhost/HelloLaravel/Course/css/شسشس</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>http://localhost/HelloLaravel/Course/css/df</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>http://localhost/HelloLaravel/Course/css/as</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>http://localhost/HelloLaravel/Course/css/ddddd</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>http://localhost/HelloLaravel/Course/cccs</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/HelloLaravel/Course/html</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/HelloLaravel/Course/html/assa</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
+        <loc>http://localhost/HelloLaravel/Course/html/asas</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/HelloLaravel/Course/html/ssaas</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
+        <loc>http://localhost/HelloLaravel/Course/html/asssas</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Course/html/sssdd</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Course/html/nnnnnnnnnnnnnnnn</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Course/html/definedProperty</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Course/html/aaaaaaaaaaaaaaa</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Course/html/sdsdsd</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Course/html/asasasasassssss</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Course/css</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Course/javaScript</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Course/laravel</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Course/bootstrap</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Course/jquery</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Course/php</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Course/mysql</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Course/seo</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Course/git</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Subcategories/we</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Subcategories/we/assss</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Subcategories/we/assssds</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Subcategories/we/assdsssds</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/HelloLaravel/Subcategories/sd</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/HelloLaravel/Subcategories/sd/سي</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
+        <loc>http://localhost/HelloLaravel/Subcategories/ssd</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/HelloLaravel/Article/sdsd</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/HelloLaravel/Book/sdsd</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
+        <loc>http://localhost/HelloLaravel/Article/aa</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/HelloLaravel/Question/sdsdssdssdsdsd</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
+        <loc>http://localhost/HelloLaravel/Article/asas</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/HelloLaravel/Question/sdsssdsdssdsss</loc>
-        <lastmod>2023-07-13T11:14:11+00:00</lastmod>
+        <loc>http://localhost/HelloLaravel/Article/sdsd1111</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Article/aa1111</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Article/asas1111</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Article/asas2222</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Article/sdsd2222</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Article/aa2222</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Article/asas22222</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Article/sdsd3333</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Article/aa33333</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Article/asas33333</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Article/sdsd33333</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Article/aa1111333333</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Article/asas1111333333</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Article/asas22223333</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Article/sdsd222233333</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Article/aa2222333333</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Article/asas2222233333</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Book/css</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/HelloLaravel/Book/asas</loc>
+        <lastmod>2023-12-25T15:40:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>

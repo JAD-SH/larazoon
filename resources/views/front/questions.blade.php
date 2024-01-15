@@ -1,7 +1,13 @@
 @extends('layouts.front.site')
 
 @section('css')
+    <link href="{{asset('public/assets/css/block-idea.css')}}" rel="stylesheet" />
+    <link href="{{asset('public/assets/css/maincategory.css')}}" rel="stylesheet" />
+    <link href="{{asset('public/assets/css/CKE-load.css')}}" rel="stylesheet" />
     <style>
+        ::-webkit-scrollbar-thumb {
+            background: var(--bs-{{$maincategory->color}});
+        }
         .addvertismrnt .card{
             border-radius:  1rem  .25rem .25rem 1rem  !important;
         }
@@ -9,76 +15,13 @@
             .content .content-question .card{
                 border-radius: .25rem 1rem 1rem .25rem !important;
             }
-            
         } 
         @media screen and (max-width: 992px){
             .addvertismrnt .card{
-                
                 border-radius: 1rem !important;
                 margin: .5rem;
             }
-            
         } 
-
-        .coverCKEForm{
-            width: 100%;
-            height: 100%;
-            background: blue;
-            position: absolute;
-            z-index: 20;
-            top: 0;
-            left: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        .coverCKEForm .outer-spinner, .coverCKEForm .inner-spinner{
-            border-radius: 50%;
-            animation-iteration-count: infinite;
-			animation-duration: 1.4s;
-            position: absolute;
-            animation-timing-function: cubic-bezier(0.29, 0.13, 0.28, 0.71);;
-        }
-        .coverCKEForm .outer-spinner{
-            width: 150px;
-            height: 150px;
-            border:20px solid #dddddd66;
-            border-top-color: #3389fc;
-            animation-name: oSpin;
-        }
-        .one-moment{
-            top: 130px;
-            position: relative;
-        }
-        .coverCKEForm .inner-spinner{
-            width: 80px;
-            height: 80px;
-            border:15px solid #dddddd66;
-            border-bottom-color: #ff4d89;
-            animation-name: iSpin;
-        }
-        @keyframes oSpin {
-			from{
-                transform: rotate(0deg);
-			}
-			to{
-                transform: rotate(360deg);
-			}
-		}
-        @keyframes iSpin {
-			from{
-                transform: rotate(0deg);
-			}
-			to{
-                transform: rotate(-360deg);
-			}
-		}
     </style>
 @endsection
 
@@ -191,7 +134,7 @@
                                     </div>
                                 </a>
                                 <div class="py-2 py-md-0 question-all-content">
-                                    <a class="nav-link text-md-start  mx-3 mx-md-0 link-block-idea-side-content" href="{{route('Question.show',$question->slug)}}">
+                                    <a class="nav-link text-md-start  mx-3 mx-md-0" href="{{route('Question.show',$question->slug)}}">
                                         <div class="text-dark fw-bolder fs-5 ">
                                             {{$question->title}}
                                             @verify
@@ -203,14 +146,14 @@
                                     </a> 
                                     @verify
                                         @if(Auth::user()->id == $question->user_id)
-                                            <a type="button" action="{{route('delete.question', $question->id)}}" style="left: 25px; top: 50px;"
+                                            <button type="button" action="{{route('delete.question', $question->id)}}" style="left: 25px; top: 50px;"
                                             class="delete d-none d-md-inline-block position-absolute trash-can-shook"
-                                            data-bs-toggle="modal" data-bs-target="#DeleteModal">
+                                            data-bs-toggle="modal" data-bs-target="#DeleteModal" aria-label="delete question">
                                             <i class="fa-solid fa-trash-can text-danger text-gradient fs-5"></i>
-                                            </a>
+                                            </button>
                                         @endif
                                     @endverify
-                                    <a class="nav-link text-md-start  mx-3 mx-md-0 link-block-idea-side-content" href="{{route('Question.show',$question->slug)}}">
+                                    <a class="nav-link text-md-start  mx-3 mx-md-0" href="{{route('Question.show',$question->slug)}}">
                                         <div class="my-3  m-md-2  mx-3 mx-md-0">
                                             
                                             <span class="badge bg-gradient-{{$maincategory->color}} text-sm text-light rounded-pill"># {{$index+1}} </span>
@@ -289,8 +232,6 @@
                         </div>
                         <div id="description_error" style="display:none;" class='bg-danger text-white m-0 p-2 fw-bolder w-100 error_msg my-2'></div> 
                     </div>
-                    
-                    <!--  يجب متابعة بقية العمل في الكونتروللير -->
                     <button  data-sos="sos-rotateZ" class=" ms-3 mt-3 btn rounded-3 bg-gradient-{{$maincategory->color}} fs-6  ckeditor-ajax-submit"  data-editor-id="question-ckeditor" data-editor-name="description">أرسل السؤال</button>
                 </form>    
             @else
@@ -304,7 +245,6 @@
                             <label class="fw-bolder fs-6 my-1 pb-2 text-dark" >السؤال</label>
                             <textarea  rows="3"></textarea>
                         </div>
-                        <!--  يجب متابعة بقية العمل في الكونتروللير -->
                         <button data-sos="sos-rotateZ"  class=" mt-3 btn rounded-3 bg-gradient-{{$maincategory->color}} fs-6">أرسل السؤال</button>
                     </div>
                 </div>
@@ -325,29 +265,22 @@
 @endif
 
 @section('script')
-
- 
-<script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/ckeditor.js"></script>
-  <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/translations/ar.js"></script>
-
-  
+    <script src="{{asset('public/assets/js/maincategory.js')}}"></script>  
+    <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/translations/ar.js"></script>
+    <script src="{{asset('public/assets/js/Handel-CKEditor.js')}}"></script>
     <script>
-
+        create_ele_img();
         
-    /*$(document).ready( function() {
-    });*/
-   
-    createEditor( 'question-ckeditor', 'ادخل السؤال هنا' );
+        createEditor( 'question-ckeditor', 'ادخل السؤال هنا' );
 
-    $('#CKEContainer').ready(function() {
-        $(".coverCKEForm").fadeOut(500)  
-      });
+        $('#CKEContainer').ready(function() {
+            $(".coverCKEForm").fadeOut(500)  
+        });
 
-    delete_buttons();
+        delete_buttons();
 
-    ckeditor_ajax_function();
+        ckeditor_ajax_function();
 
-   
-</script>
-
+    </script>
 @endsection

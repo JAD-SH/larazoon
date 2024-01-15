@@ -7,55 +7,25 @@
 @endsection
 
 @section('css')
-
-  <style>
-    
-    .timeline:before {
-      height: 80% !important;
-    }
-    @media screen and (max-width: 767px)
-    { 
-      .new-box {
-        top: 13% !important;
-      }
-    }
-    @media screen and (min-width: 992px){
-      .new-box {
-        top: 19% !important;
-        left: -45% !important;
-      }
-    } 
-    li{
-      list-style:none;
-    }
-  </style>
-  
+  <link href="{{asset('public/assets/css/profile.css')}}" rel="stylesheet" />
 @endsection
- 
 
 @section('path')
   <li class="breadcrumb-item fw-bolder active " aria-current="page"><i class="fa-solid fa-address-card "></i> {{$user->username}} </li>
 @endsection
 
-
 @section('content')
 
-
-
-<div class=" m-0 ">
-
-
-  <div class=" ">
-    
+<div class="m-0">
+  <div class="">
       <div data-sos-once="true" data-sos="sos-blur" class="page-header rounded-5 py-3" style="background-image: url({{Site()->user_profile_background}}); height:200px;">
-        <span class="mask  bg-gradient-primary"></span>
+        <span class="mask bg-gradient-primary"></span>
       </div>
-
-      <div class="card m-1 m-md-4 p-2 p-md-4 pt-0  border-0 rounded-5  shadow-sm mb-5 mt-n6  ">
+      <div class="card m-1 m-md-4 p-2 p-md-4 pt-0 border-0 rounded-5 shadow-sm mb-5 mt-n6">
         <div class="row m-2">
             <div class="col-auto px-0">
               <a href="{{ $user->getPhoto() }}" class="avatar avatar-xl position-relative py-1 nav-link pe-1">
-                <img src="{{ $user->getPhoto() }}" alt="profile_image" class="w-100 h-100 rounded-4">
+                <img src="{{ $user->getPhoto() }}" alt="{{ $user->name }}" class="w-100 h-100 rounded-4">
               </a>    
             </div>
             <div class="col-auto my-auto">
@@ -70,7 +40,6 @@
             </div>
         </div>
         <div class="row">
-            
           <div data-sos-once="true" data-sos="sos-top" class="col-12 col-md-6">
               <div class="h-100">
                   <div class=" pb-0 p-3">
@@ -232,7 +201,7 @@
                     <td class="align-middle px-3 ">
                       <a class="d-flex py-1 nav-link " href="{{route('show-course',$course->slug)}}">
                         <div class="">
-                          <img src="{{$course->photo}}" class="avatar avatar-sm mx-1" alt="xd" style="height: 25px !important;">
+                          <img src="{{$course->photo}}" class="avatar avatar-sm mx-1" alt="{{$course->title}}" style="height: 25px !important;">
                         </div>
                         <div class="d-flex flex-column justify-content-center p-0">
                           <span class="mb-0 text-uppercase  fw-bolder text-dark"> {{$course->title}}</span>
@@ -550,7 +519,22 @@
 
 <script>
   scroll_to_right();
-  
+  function scroll_to_right(){
+      let scroll_right = document.querySelectorAll('.scroll-right');
+      scroll_right.forEach(element => {
+          $(element).siblings('div.table-responsive').scroll(function(){
+              $(element).removeClass('d-none');
+              if($(this).scrollLeft() == 1 || $(this).scrollLeft() == 0){
+                  $(element).addClass('d-none');
+              }
+          });
+          $(element).click(function(){
+              $(element).siblings('div.table-responsive').animate({
+                  scrollLeft: 0
+              }, 300);
+          })
+      });
+  }
 </script>
 
 @endsection

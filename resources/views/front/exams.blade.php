@@ -1,22 +1,19 @@
-
 @extends('layouts.front.site')
 
-
-@section('title','اختبار الكورس '.$course->title)
+@section('title','أختبار اتمام الكورس '.$course->title)
 
 @section('meta_tags')
-<meta name="robots" content="noindex">
+    <meta name="robots" content="noindex">
 @endsection
 
-
 @section('css')
-
     <style>
-        
+        ::-webkit-scrollbar-thumb {
+            background: var(--bs-{{$course->color}});
+        }
         .card p{
             color: #344767;
         }
-        
         .dark-version .card p{
             color:#bfb8b8 !important;
         }
@@ -26,19 +23,13 @@
         }
         div:has(> input[type='radio']){
             border:1px solid #d7d7d700;
-
         }
         div:has(> input[type='radio']:checked){
             background-color: var(--bs-body-bg);
             border:1px solid var(--bs-text-color);
         }
-        
     </style>
-
-
 @endsection
-
-
 
 @section('path')
     <li class="breadcrumb-item fw-bolder"><a class="nav-link d-inline" href="{{route('profile')}}"><i class="fa-solid fa-address-card"></i></a></li>
@@ -47,10 +38,7 @@
 
 @section('content')
 
-
-
 <div class="card d-flex m-1 m-md-4 p-2 p-md-4 pt-0  border-0 rounded-5  shadow-sm">
-
     <h1 class=" m-0 p-3 fw-bolder  text-center fs-4">
         أختبار اتمام الكورس <span class="text-{{$course->color}} fs-3 border-2 border-{{$course->color}} border-bottom">{{$course->title}}</span>
     </h1>

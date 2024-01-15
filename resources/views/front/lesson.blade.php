@@ -9,35 +9,17 @@
 
 
 @section('css')
+    <!-- syntax code -->
+    <link href="{{asset('public/assets/prism/prism.css')}}" rel="stylesheet" />
     <link href="{{asset('public/assets/css/lesson.css')}}" rel="stylesheet" />
-    
-    
     <style>
-        .example{
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-        }
-
-        .example td, .example th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-        color:#000;
-        }
-
-        .example tr{
-        background-color: #ffffff;
-        }
-        .example tr:nth-child(even) {
-        background-color: #d7d7d7;
+        ::-webkit-scrollbar-thumb {
+            background: var(--bs-{{$group_lessons[0]->course->color}});
         }
     </style>
-    <link href="{{asset('public/assets/css/lesson.css')}}" rel="stylesheet" />
     {!!$lesson->style!!}
     {!!$schemajspnscript!!}
 @endsection
-
 
 @section('path')
     <li class="breadcrumb-item fw-bolder"><a class="nav-link d-inline" href="{{route('show-course',$group_lessons[0]->course->slug)}}">{{$group_lessons[0]->course->title}}</a></li>
@@ -610,35 +592,29 @@
 
   
 @section('script')
-
-<script>
-    let page_color = "{{$group_lessons[0]->course->color}}";
-    style_function(page_color);
-
-
-    let all_questions = [...document.querySelectorAll(".all-questions")];
-    let options_question;
-    all_questions.forEach(question => {
+    <!-- syntax code -->
+    <script src="{{asset('public/assets/prism/prism.js')}}"></script>
+    <script src="{{asset('public/assets/js/lesson.js')}}"></script>
+    <script src="{{asset('public/assets/js/ABCLQ.js')}}"></script>
+    <script>
+        let page_color = "{{$group_lessons[0]->course->color}}";
+        style_function(page_color);
         
-        options_question = [...$(question).find('div .option')];
-        options_question.forEach(option => {
-            y=Math.floor(Math.random() *20);
-            option.style.order=y;
-        });
         
-    });
-    
-    //ajax_function();
+        //ajax_function();
 
-    create_save_btn(page_color,"{{route('save-lesson',$lesson->id)}}");
-    
-</script>
-<script>
-    
-    scroll_to_right();
-    
-</script>
-{!!$lesson->script!!}
+        @verify
+            create_save_btn(page_color,"{{route('save-lesson',$lesson->id)}}");
+        @else
+            create_save_btn_not_verify(page_color,"{{route('save-lesson',$lesson->id)}}");
+        @endverify
+    </script>
+    <script>
+        
+        scroll_to_right();
+        
+    </script>
+    {!!$lesson->script!!}
 
 @endsection
 

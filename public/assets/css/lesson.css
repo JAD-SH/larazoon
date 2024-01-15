@@ -1,3 +1,4 @@
+
 .all-content .TI-RM-B{
     margin: 0.5rem;
     padding: 0.5rem 0.75rem;
@@ -191,7 +192,14 @@ table tbody tr td hr{
     background-image: linear-gradient(195deg, #ffffff00, var(--bs-code-box-bg) 100%);
     border-radius: 20px 0 0 700px;
 }
-
+.all-content .display-code{
+    background-image: linear-gradient(195deg, #ffffff00, var(--bs-code-box-bg) 100%);
+    border-radius: 20px 0 0 700px;
+}
+.all-content .display-code *, .all-content .smal-code *, .all-content .code-box-line, .all-content .code-box{
+    letter-spacing: .7px !important;
+    font-size: 1.07rem !important;
+}
 .word{
     color: var(--bs-cust-text-color) !important;
     font-size: 1rem !important;
@@ -224,7 +232,7 @@ table tbody tr td hr{
 .alert-info {
     --bs-alert-color: #016479 !important;
     --bs-alert-bg: #a3daff !important;
-    --bs-alert-border-color: #1a73e8 !important;
+    --bs-alert-border-color: #1c75ea !important;
     font-weight: 500 !important;
     font-size: 1.02rem !important;
     border:unset;
@@ -322,7 +330,89 @@ ul.dec li::marker{
 ul {
     padding-right: 1rem !important;
 }
-
 .all-content .table-section thead tr th:not(.text-start), .all-content .table-tryit thead tr th:not(.text-start) {
     width: 10px !important;
+}
+code[class*="language-"], pre[class*="language-"] {
+    text-shadow: unset;
+    font-size: 1rem !important;
+    font-weight: bolder!important;
+}
+pre[class*="language-"]{
+    display: flex;
+    border-radius: 7px;
+    max-height: 90vh  !important;
+    direction: ltr;
+    margin-top: 20px;
+}
+div.code-toolbar>.toolbar>.toolbar-item span{
+    color: white !important;
+    background: rgba(255, 255, 255, 0); 
+    box-shadow: unset; 
+    border-radius: unset;
+   
+}
+div.code-toolbar>.toolbar>.toolbar-item{
+    background-image: linear-gradient(195deg, #6f7389d5 0%, #6f7389 100%);
+    box-shadow: 0 3px 3px 0 rgba(251, 140, 0, 0.15), 0 3px 1px -2px rgba(251, 140, 0, 0.2), 0 1px 5px 0 rgba(251, 140, 0, 0.15);
+    padding: 0.25rem 1rem  0.25rem 1rem !important;
+    border-radius: 0.6em;
+     direction: ltr;
+}
+
+div.code-toolbar>.toolbar{
+    text-align: end;
+    position: absolute;
+    top: -20px !important;
+    left: 20px !important;
+    opacity: unset;
+}
+.copy-btn{
+    top: 10px !important;
+    right: 20px !important;
+}
+.page-title:hover{
+    letter-spacing: 11px;
+    transition: all 0.5s !important;
+}
+
+#save-items-continer{
+    left: -50px;
+    top:80%;
+    z-index: 2;
+    transition: all .8s;
+}
+#save-items-btn{
+    font-size: 35px !important;
+    transition: all .8s;
+    padding: 1rem!important;
+}
+#save-items-continer:hover{
+    left: 0  !important;
+}
+#save-items-continer:hover #save-items-btn{
+    transform: rotate(180deg);
+    transition: all .8s;
+}
+.code-box{
+    background-color: #e0e0e012;
+    unicode-bidi: plaintext;
+    padding:0.15rem 0.2rem;
+    font-weight: bolder !important;
+    border-radius: 0.125rem ;
+    font-size: 1rem;
+    font-weight: bolder;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    margin-left: 0.25rem;
+   /* margin-right: 0.25rem;*/
+}
+.code-box-color{
+    color: var(--bs-cust-text-color) !important;
+}
+samp.code-box-color{
+    border: 1px solid var(--bs-cust-text-color);
+}
+[dir=rtl] .todo-list .todo-list__label>input{
+    margin: 0 !important;
 }

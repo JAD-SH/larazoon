@@ -7,19 +7,22 @@
 @section('og:url',route('show-category',[$category->subcategory->slug,$category->slug]))
 
 @section('css')
-<link href="{{asset('public/assets/css/lesson.css')}}" rel="stylesheet" />
+    <!-- syntax code -->
+    <link href="{{asset('public/assets/prism/prism.css')}}" rel="stylesheet" />
+    <link href="{{asset('public/assets/css/lesson.css')}}" rel="stylesheet" />
     <style>
+        ::-webkit-scrollbar-thumb {
+            background: var(--bs-{{$category->subcategory->color}});
+        }
         p {
             opacity: unset !important;
         }
-       
         .paragraf-path:hover{
             margin-right:15px;
         }
         .card p{
             color: #344767;
         }
-        
         .dark-version .card p{
             color:#bfb8b8 !important;
         }
@@ -27,13 +30,10 @@
             transition: all 0.5s !important;
         }
         .click-image{
-            
             position: relative;
             width:150% !important;
         }
-        
     </style>
-
     {!!$category->style!!}
     {!!$schemajspnscript!!}
 @endsection
@@ -53,25 +53,8 @@
     'createdat' => $category->created_at->diffForHumans(),
     'saveroute' => route('save-category',$category->id)])
 
-
-@verify
-
-    <form action="{{route('save-category',$category->id)}}" method="POST">
-        @csrf
-        <button id="save-items-continer" class=" bg-gradient-{{$category->subcategory->color}} position-fixed rounded-1 d-none d-lg-block ajax-submit">
-            <i id="save-items-btn" class="fa-solid fa-plus text-white p-3 "></i>
-        </button>
-    </form>
-@else
-    <button id="save-items-continer" class=" bg-gradient-{{$category->subcategory->color}} position-fixed rounded-1 d-none d-lg-block" data-bs-toggle="modal" data-bs-target="#LoginModal" >
-        <i id="save-items-btn" class="fa-solid fa-plus text-white p-3 "></i>
-    </button>
-@endverify
-
     {!!$category->content!!}
  
-
-    
     @include('front.includes.alerts.likes-views', 
     ['isliked' => 'category'.$category->id.'IsLiked' ,
     'likedroute' => route('Category.AddLike',$category->id) ,
@@ -84,14 +67,21 @@
 
   
 @section('script')
+    <!-- syntax code -->
+    <script src="{{asset('public/assets/prism/prism.js')}}"></script>
+    <script src="{{asset('public/assets/js/lesson.js')}}"></script>
+    <script src="{{asset('public/assets/js/ABCLQ.js')}}"></script>
+    <script>
+        //ajax_function();
 
-<script>
-    //ajax_function();
-
-    let page_color = "{{$category->subcategory->color}}";
-    //style_function(page_color);
-    create_save_btn(page_color,"{{route('save-category',$category->id)}}");
-</script>
+        let page_color = "{{$category->subcategory->color}}";
+        //style_function(page_color);
+        @verify
+            create_save_btn(page_color,"{{route('save-category',$category->id)}}");
+        @else
+            create_save_btn_not_verify(page_color,"{{route('save-category',$category->id)}}");
+        @endverify
+    </script>
 
 {!!$category->script!!}
 
