@@ -8,7 +8,11 @@
 
 @section('css')
     <!-- syntax code -->
-    <link href="{{asset('public/assets/prism/prism.css')}}" rel="stylesheet" />
+    @isset($_COOKIE['DarkMode']) 
+    <link id="prism_css" href="{{asset('public/assets/prism/dark-prism.css')}}" rel="stylesheet" />
+    @else
+    <link id="prism_css" href="{{asset('public/assets/prism/light-prism.css')}}" rel="stylesheet" />
+    @endisset
     <link href="{{asset('public/assets/css/lesson.css')}}" rel="stylesheet" />
     <style>
         ::-webkit-scrollbar-thumb {
@@ -67,8 +71,13 @@
 
   
 @section('script')
+    
     <!-- syntax code -->
-    <script src="{{asset('public/assets/prism/prism.js')}}"></script>
+    @isset($_COOKIE['DarkMode']) 
+    <script id="prism_js" src="{{asset('public/assets/prism/dark-prism.js')}}"></script>
+    @else
+    <script id="prism_js" src="{{asset('public/assets/prism/light-prism.js')}}"></script>
+    @endisset
     <script src="{{asset('public/assets/js/lesson.js')}}"></script>
     <script src="{{asset('public/assets/js/ABCLQ.js')}}"></script>
     <script>

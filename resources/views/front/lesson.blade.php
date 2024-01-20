@@ -10,7 +10,12 @@
 
 @section('css')
     <!-- syntax code -->
-    <link href="{{asset('public/assets/prism/prism.css')}}" rel="stylesheet" />
+    @isset($_COOKIE['DarkMode']) 
+    <link id="prism_css" href="{{asset('public/assets/prism/dark-prism.css')}}" rel="stylesheet" />
+    @else
+    <link id="prism_css" href="{{asset('public/assets/prism/light-prism.css')}}" rel="stylesheet" />
+    @endisset
+
     <link href="{{asset('public/assets/css/lesson.css')}}" rel="stylesheet" />
     <style>
         ::-webkit-scrollbar-thumb {
@@ -119,7 +124,7 @@
         <!-- بدل محل النوع css بنوع الكود -->
         <div class="my-3 display-code">
 
-            <pre class="language-css my-3">
+            <pre class="language-css my-3 line-numbers">
                 
                 <code class="language-css"> /**this is just a comment */
 * {
@@ -151,8 +156,23 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    color: var(--bs-text-color);
+    color: red;
 }</code>
+            </pre>
+            <a class="TI-RM-B" href="{{route('tryit-page','ssssss');}}" type="button">
+                جرب
+                <i class="fa-solid fa-play "></i>
+            </a>
+        </div>
+        <div class="my-3 display-code">
+
+            <pre class="language-javascript my-3">
+                
+                <code class="language-javascript"> let i = 0, text = "";
+for( ; i < 8 ; ){
+    text += "The Number is " + i + "<br>";
+}
+document.getElementById('demo').innerHTML = text;</code>
             </pre>
             <a class="TI-RM-B" href="{{route('tryit-page','ssssss');}}" type="button">
                 جرب
@@ -592,8 +612,13 @@
 
   
 @section('script')
+
     <!-- syntax code -->
-    <script src="{{asset('public/assets/prism/prism.js')}}"></script>
+    @isset($_COOKIE['DarkMode']) 
+    <script id="prism_js" src="{{asset('public/assets/prism/dark-prism.js')}}"></script>
+    @else
+    <script id="prism_js" src="{{asset('public/assets/prism/light-prism.js')}}"></script>
+    @endisset
     <script src="{{asset('public/assets/js/lesson.js')}}"></script>
     <script src="{{asset('public/assets/js/ABCLQ.js')}}"></script>
     <script>

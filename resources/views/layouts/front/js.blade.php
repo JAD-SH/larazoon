@@ -246,6 +246,7 @@
           bodyEl.classList.add("dark");
           Dark_Light_Cookie('DarkMode',true,1);
           page_header_photo("dark");
+          Dark_Light_Code("dark");
         } else {
           label_mode.forEach(element => {
             element.classList.add('fa-moon');
@@ -254,6 +255,7 @@
           bodyEl.classList.remove("dark");
           Dark_Light_Cookie('DarkMode',false,0);
           page_header_photo("light");
+          Dark_Light_Code("light");
         }
       })
     }); 
@@ -281,6 +283,23 @@
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     let expires = "expires="+ d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+  function Dark_Light_Code(status){
+    let prism_css = $('#prism_css');
+    let prism_js = $('#prism_js');
+    let light_prism_css = "{{asset('public/assets/prism/light-prism.css')}}";
+    let light_prism_js = "{{asset('public/assets/prism/light-prism.js')}}";
+    let dark_prism_css = "{{asset('public/assets/prism/dark-prism.css')}}";
+    let dark_prism_js = "{{asset('public/assets/prism/dark-prism.js')}}";
+    if(prism_css && prism_js){
+      if(status === "light"){
+        prism_css.attr('href',light_prism_css)
+        prism_js.attr('src',light_prism_js)
+      }else{
+        prism_css.attr('href',dark_prism_css)
+        prism_js.attr('src',dark_prism_js)
+      }
+    }
   }
 
 /*################# start scrolling-button ##########################*/

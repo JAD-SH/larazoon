@@ -189,14 +189,10 @@ table tbody tr td hr{
     font-size: 1rem !important;
 }
 .all-content .display-code{
-    background-image: linear-gradient(195deg, #ffffff00, var(--bs-code-box-bg) 100%);
     border-radius: 20px 0 0 700px;
+    letter-spacing: .7px !important;
 }
-.all-content .display-code{
-    background-image: linear-gradient(195deg, #ffffff00, var(--bs-code-box-bg) 100%);
-    border-radius: 20px 0 0 700px;
-}
-.all-content .display-code *, .all-content .smal-code *, .all-content .code-box-line, .all-content .code-box{
+.all-content .smal-code *, .all-content .code-box-line, .all-content .code-box{
     letter-spacing: .7px !important;
     font-size: 1.07rem !important;
 }
@@ -335,7 +331,7 @@ ul {
 }
 code[class*="language-"], pre[class*="language-"] {
     text-shadow: unset;
-    font-size: 1rem !important;
+    font-size: unset !important;
     font-weight: bolder!important;
 }
 pre[class*="language-"]{
