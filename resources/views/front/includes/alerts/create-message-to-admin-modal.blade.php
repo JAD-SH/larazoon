@@ -29,7 +29,7 @@
                     </div>
                     
                     <button type="button" class="btn rounded-3 bg-gradient-primary fs-6 ajax-submit">أرسل الموضوع</button>
-                    <button type="button" class="btn rounded-3 bg-gradient-secondary fs-6" data-bs-dismiss="modal">الغاء</button>
+                    <button type="button" class="btn rounded-3 fw-bolder fs-5" data-bs-dismiss="modal">الغاء</button>
                 </form>
             </div>
         </div>

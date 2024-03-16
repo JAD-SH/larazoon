@@ -72,7 +72,7 @@
                             <div id="experience_error" style="display:none;" class='bg-danger text-white m-0 p-2 font-weight-bolder w-100 error_msg my-2'></div>
                         </div>
                         <button type="button" class="btn rounded-3 bg-gradient-primary fs-6 ajax-submit">أرسل التجربة</button>
-                        <button type="button" class="btn rounded-3 bg-gradient-secondary fs-6" data-bs-dismiss="modal">الغاء</button>
+                        <button type="button" class="btn rounded-3 fw-bolder fs-5" data-bs-dismiss="modal">الغاء</button>
                     </form>
                 </div>
             </div>

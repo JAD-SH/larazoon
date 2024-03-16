@@ -22,7 +22,7 @@
                 </div>
                 <!--  يجب متابعة بقية العمل في الكونتروللير -->
                 <button  class="btn rounded-3 bg-gradient-{{$question->questionlibraries->first()->maincategory->first()->color}} fs-6  ckeditor-ajax-submit" data-editor-id="reply-ckeditor"  data-editor-name="comment">أرسل التعليق</button>
-                    <button type="button" class="btn rounded-3 bg-gradient-secondary fs-6" data-bs-dismiss="modal">الغاء</button>
+                    <button type="button" class="btn rounded-3 fw-bolder fs-5" data-bs-dismiss="modal">الغاء</button>
             </form>
                 
             </div>

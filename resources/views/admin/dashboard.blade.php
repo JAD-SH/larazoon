@@ -266,19 +266,19 @@
       <canvas id="myChart3" width="413" height="413" style="display: block; box-sizing: border-box; height: 413px; width: 413px;"></canvas>
     </div>
   </div>
-  <div class="col-lg-6 col-md-9 col-12 my-3  my-lg-4">
+  <div class="col-12 my-3 ">
     <div class="card  border-0 rounded-5  shadow-sm">
-      <canvas id="myChart4" width="396" height="198" style="display: block; box-sizing: border-box; height: 198px; width: 396px;"></canvas>
-    </div>
-  </div>
-  <div class="col-lg-6 col-md-9 col-12 my-3  my-lg-4">
-    <div class="card  border-0 rounded-5  shadow-sm">
-      <canvas id="myChart5" width="396" height="198" style="display: block; box-sizing: border-box; height: 198px; width: 396px;"></canvas>
+      <canvas id="myChart5" width="396" height="100" style="display: block; box-sizing: border-box; height: 100px; width: 396px;"></canvas>
     </div>
   </div>
   <div class="col-lg-6 col-md-9 col-12 my-3  my-lg-4">
     <div class="card  border-0 rounded-5  shadow-sm">
       <canvas id="myChart6" width="396" height="198" style="display: block; box-sizing: border-box; height: 198px; width: 396px;"></canvas>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-9 col-12 my-3  my-lg-4">
+    <div class="card  border-0 rounded-5  shadow-sm">
+      <canvas id="myChart4" width="396" height="198" style="display: block; box-sizing: border-box; height: 198px; width: 396px;"></canvas>
     </div>
   </div>
   <div class="col-lg-6 col-md-9 col-12 my-3  my-lg-4">

@@ -84,7 +84,7 @@
 
                     <div class="mt-4">
                       <button type="button"  class="btn rounded-3 bg-gradient-info fs-6 ajax-submit">حفظ التعديلات</button>
-                      <button type="button" class="btn rounded-3 bg-gradient-secondary fs-6" data-bs-dismiss="modal">الغاء</button>
+                      <button type="button" class="btn rounded-3 fw-bolder fs-5" data-bs-dismiss="modal">الغاء</button>
 
                     </div>
                 </form>

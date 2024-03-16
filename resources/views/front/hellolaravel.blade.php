@@ -120,13 +120,13 @@
                                         {{$course->description}}
                                     </p>
                                 @endif
-                                <div class="mb-2">
-                                    <span class="fw-bolder badge text-dark placeholder" data-bs-toggle="tooltip" data-bs-placement="top" title="عدد دروس الكورس"><i class="fa-solid fa-scroll text-{{$course -> color}}"></i> <span></span> {{$course -> lessons->count()}} </span>
-                                    <span class="fw-bolder badge text-dark placeholder"><i class="fa-sharp fa-solid fa-eye text-{{$course -> color}}"></i> <span></span>{{$course -> lessons->sum('views')}} </span>
-                                    <span class="fw-bolder badge text-dark placeholder"><i class="fa-solid fa-heart text-{{$course -> color}}"></i> <span></span> {{$course -> lessons->sum('likes')}} </span>
-                                </div>
                                 @if($course->lessons->count() > 0)
-                                         <a  data-sos-once="true" data-sos="sos-zoom-out"  href="{{route('show-course',$course->slug)}}" type="button" class="show-course-btn text-nowrap btn  rounded-3 btn-{{$course -> color}} mx-1 fw-bolder placeholder" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="الق نظرة على محتوى الكورس" title="الق" >مشاهدة الكورس</a>
+                                    <div class="mb-2">
+                                        <span class="fw-bolder badge text-dark placeholder" data-bs-toggle="tooltip" data-bs-placement="top" title="عدد دروس الكورس"><i class="fa-solid fa-scroll text-{{$course -> color}}"></i> <span></span> {{$course -> lessons->count()}} </span>
+                                        <span class="fw-bolder badge text-dark placeholder"><i class="fa-sharp fa-solid fa-eye text-{{$course -> color}}"></i> <span></span>{{$course -> lessons->sum('views')}} </span>
+                                        <span class="fw-bolder badge text-dark placeholder"><i class="fa-solid fa-heart text-{{$course -> color}}"></i> <span></span> {{$course -> lessons->sum('likes')}} </span>
+                                    </div>
+                                    <a  data-sos-once="true" data-sos="sos-zoom-out"  href="{{route('show-course',$course->slug)}}" type="button" class="show-course-btn text-nowrap btn  rounded-3 btn-{{$course -> color}} mx-1 fw-bolder placeholder" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="الق نظرة على محتوى الكورس" title="الق نظرة على محتوى الكورس" >مشاهدة الكورس</a>
                                  @else
                                     <div data-sos-once="true" data-sos="sos-zoom-out" class="show-course-btn d-flex align-items-center justify-content-between">
                                         <span  class="text-nowrap btn  rounded-3 btn-{{$course -> color}} mx-1 fw-bolder placeholder" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="نعمل بجهد لنوفرها في اسرع وقت">سنوفرها قريبا إن شاء اللّه</span>

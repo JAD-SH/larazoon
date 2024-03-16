@@ -45,7 +45,7 @@
                   </a>
                   @include('front.includes.alerts.edit-profile-modal')
                   <a class="d-inline-block nav-link pe-1 " href="{{route('show-my-profile')}}" >
-                    <i class="fas fa-user-edit text-sm" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="عرض الملف كما يظهر لجميع المستخدمين الاخرين"></i>
+                    <i class="fa-sharp fa-solid fa-eye text-sm text-info" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="عرض الملف كما يظهر لجميع المستخدمين الاخرين"></i>
                   </a>
                 </div>
               </div>
@@ -304,7 +304,7 @@
                     <td class="align-middle px-3 ">
                       <a class="d-flex py-1 nav-link " href="{{route('show-course',$course->slug)}}">
                         <div class="">
-                          <img src="{{$course->photo}}" class="avatar avatar-sm mx-1" alt="{{$course->title}}">
+                          <img src="{{$course->photo}}" class="avatar avatar-sm mx-1 rounded-0" alt="{{$course->title}}">
                         </div>
                         <div class="d-flex flex-column justify-content-center p-0">
                           <span class="mb-0 text-uppercase  fw-bolder text-dark"> {{$course->title}}</span>
@@ -521,7 +521,7 @@
                   <td class="align-middle px-3 ">
                     <a class="d-flex py-1 nav-link " href="{{route('show-course',$course->slug)}}">
                       <div class="">
-                        <img src="{{$course->photo}}" class="avatar avatar-sm mx-1" alt="{{$course->title}}">
+                        <img src="{{$course->photo}}" class="avatar avatar-sm mx-1 rounded-0" alt="{{$course->title}}">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <span class="mb-0 text-uppercase  fw-bolder text-dark"> {{$course->title}}</span>

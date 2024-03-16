@@ -18,7 +18,7 @@
   
 </ul>
   <ul class="navbar-nav p-0 flex-row">
-<li class=" nav-item px-3 d-flex align-items-center">
+<li class=" nav-item px-3 d-flex align-items-center position-relative">
 @if(Asks()->count() > 0 || Messages()->count() > 0) 
 <span class=" bg-gradient-danger rounded position-absolute" style="width:10px; height:10px; top:0; right:0;"></span> 
 @endif
